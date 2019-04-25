@@ -3,8 +3,8 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
-// require('dotenv').config()
-// const session = require('express-session');
+require('dotenv').config()
+const session = require('express-session');
 const app = express()
 const db = mongoose.connection
 
@@ -18,8 +18,12 @@ const brewController = require('./controllers/brew')
 
 const PORT = process.env.PORT || 3000
 
+////need to figure out how to get this in ENV
+
 //database
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/BrewView'
+
+//need to figure out how to put this in env
 
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
@@ -45,12 +49,12 @@ app.use(express.json());// I know we don't need this for now, but adding it in f
 //use method override
 app.use(methodOverride('_method'));
 
-//add session data
-// app.use(session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+// add session data
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Routes///////////////////////////////////////////////
