@@ -13,7 +13,7 @@ const db = mongoose.connection
 
 /////Routers
 
-// const brewController = require('./controllers/brew')
+const brewController = require('./controllers/brew')
 //Port
 
 const PORT = process.env.PORT || 3000
@@ -59,13 +59,13 @@ app.use(methodOverride('_method'));
 
 ////////////Brew Routes//////////////////////
 
-// app.use('/brew', brewController)
+app.use('/brew', brewController)
 
 
 /////landing page
 app.get('/' , (req, res) => {
-    // res.redirect('/brew')
-    res.send('Hello World!');
+    res.redirect('/brew')
+    // res.send('Hello World!');
   });
   
   //___________________
