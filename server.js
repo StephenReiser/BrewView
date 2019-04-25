@@ -16,10 +16,10 @@ const db = mongoose.connection
 // const brewController = require('./controllers/brew')
 //Port
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 //database
-const MONGODB_URI = process.env.MONGODB_URI
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/BrewView'
 
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
