@@ -3,8 +3,8 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
-require('dotenv').config()
-const session = require('express-session');
+// require('dotenv').config()
+// const session = require('express-session');
 const app = express()
 const db = mongoose.connection
 
@@ -46,11 +46,11 @@ app.use(express.json());// I know we don't need this for now, but adding it in f
 app.use(methodOverride('_method'));
 
 //add session data
-app.use(session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false
-}))
+// app.use(session({
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: false
+// }))
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Routes///////////////////////////////////////////////
