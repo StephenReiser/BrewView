@@ -1,0 +1,24 @@
+{
+  "name": "brewview",
+  "version": "1.0.0",
+  "description": "BrewView",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenReiser/BrewView.git"
+  },
+  "author": "Stephen Reiser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StephenReiser/BrewView/issues"
+  },
+  "homepage": "https://github.com/StephenReiser/BrewView#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.3"
+  }
+}
