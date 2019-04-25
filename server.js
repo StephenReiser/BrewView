@@ -16,7 +16,7 @@ const db = mongoose.connection
 const brewController = require('./controllers/brew')
 //Port
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 
 //database
 const MONGODB_URI = process.env.MONGODB_URI
@@ -64,8 +64,8 @@ app.use('/brew', brewController)
 
 /////landing page
 app.get('/' , (req, res) => {
-    res.redirect('/brew')
-    // res.send('Hello World!');
+    // res.redirect('/brew')
+    res.send('Hello World!');
   });
   
   //___________________
