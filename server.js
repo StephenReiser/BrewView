@@ -13,7 +13,7 @@ const db = mongoose.connection
 
 /////Routers
 
-const brewController = require('./controllers/brew')
+// const brewController = require('./controllers/brew')
 //Port
 
 const PORT = process.env.PORT
@@ -59,7 +59,7 @@ app.use(session({
 
 ////////////Brew Routes//////////////////////
 
-app.use('/brew', brewController)
+// app.use('/brew', brewController)
 
 
 /////landing page
