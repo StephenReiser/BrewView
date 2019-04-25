@@ -68,7 +68,7 @@ app.use('/brew', brewController)
 
 /////landing page
 app.get('/' , (req, res) => {
-    res.redirect('/brew')
+    res.redirect('/brew/featured')
     // res.send('Hello World!');
   });
   
