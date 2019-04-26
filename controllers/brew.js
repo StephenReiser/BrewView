@@ -8,8 +8,12 @@ const Brew = require('../models/brew')
 ////index route
 
 brew.get('/', (request, response) => {
-    response.send('INDEX ROUTE')
-    // response.render('brew/landing.ejs')
+    Brew.find({},(error, foundBrew) => {
+        response.render('index.ejs', {
+            brews: foundBrew
+        })
+
+    })
 })
 
 
@@ -42,10 +46,30 @@ brew.get('/new', (request, response) => {
 )
 
 
-////create - this is set up, but won't do anything until forms are set up
+////create route///////////////
 
 brew.post('/', (request, response) => {
     //woudl need to do model.create here
+    if (request.body.dogFriendly === 'on') {
+        request.body.dogFriendly = true
+    } else {
+        request.body.dogFriendly = false
+    }
+    if (request.body.outsideFood === 'on') {
+        request.body.outsideFood = true
+    } else {
+        request.body.outsideFood = false
+    }
+    if (request.body.foodTrucks === 'on') {
+        request.body.foodTrucks = true
+    } else {
+        request.body.foodTrucks = false
+    }
+    if (request.body.glutenFree === 'on') {
+        request.body.glutenFree = true
+    } else {
+        request.body.glutenFree = false
+    }
     Brew.create(request.body, (error, createdBrew) => {
         if(error) {
             console.log(error)

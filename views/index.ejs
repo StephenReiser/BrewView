@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </head>
+    <body>
+    <nav>
+    <a href='/brew/new'>Add New</a>
+    </nav>
+      <div class="container">
+        <h1>Welcome to Brew View</h1>
+        <% brews.forEach((brewery) => {%>
+        <div class="row">
+           <%= brewery.name %>
+           <a href='/brew/<%=brewery.id%>/edit'>Edit</a>
+
+          </div>
+        <%})%>
+        </div>
+    </body>
+</html>
