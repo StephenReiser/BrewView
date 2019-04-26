@@ -1,6 +1,7 @@
 const express = require('express')
 const brew = express.Router()
 ///ultimately wil need to require any necessary Model and bcrypt
+const Brew = require('../models/brew')
 
 
 
@@ -10,6 +11,23 @@ brew.get('/', (request, response) => {
     response.send('INDEX ROUTE')
     // response.render('brew/landing.ejs')
 })
+
+
+
+///////////////////////Seed route///////////Need to get create route up
+const seed = require('../models/seed')
+brew.get('/seedBrews', (request, response) => {
+    // encrypts the given seed passwords
+
+    // seeds the data
+    Brew.create(seed, (err, createdBrews) => {
+      // logs created users
+      console.log(createdBrews);
+      // redirects to index
+      res.redirect('/');
+    });
+  });
+  
 
 ///featured route (sort of a show page)
 brew.get('/featured', (request, response) => {
@@ -28,7 +46,12 @@ brew.get('/new', (request, response) => {
 
 brew.post('/', (request, response) => {
     //woudl need to do model.create here
-    response.redirect('/')
+    Brew.create(request.body, (error, createdBrew) => {
+        if(error) {
+            console.log(error)
+        } console.log(createdBrew)
+        response.redirect('/brew')
+    })
 })
 
 

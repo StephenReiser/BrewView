@@ -1,16 +1,18 @@
 const mongoose = require('mongoose')
 
 const brewSchema = new mongoose.Schema({
-    username: {type: String, required: true},
+    name: {type: String, required: true},
     lattitude: {type: Number, required: true},
     longitude: {type: Number, required: true},
-    mainImage: {type: String, required: true},
+    website: String,
+    mainImage: String,
     imageTwo: String,
     imageThree: String,
     imageFour: String,
     dogFriendly: Boolean,
     outsideFood: Boolean,
     foodTrucks: Boolean,
+    glutenFree: Boolean,
     comments: [{
         username: String,
         userComments: String,
