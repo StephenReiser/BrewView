@@ -81,8 +81,13 @@ brew.post('/', (request, response) => {
 
 ////////////////Delete Route//////////////////////////
 brew.delete('/:id', (request, response) => {
-    response.send('clicked')
+    // response.send('clicked')
     ////need to do something like findByIdAndRemove
+    Brew.findByIdAndRemove(request.params.id, (error, removed) => {
+        if(error) {
+            console.log(error)
+        } response.redirect('/brew')
+    })
 })
 
 
