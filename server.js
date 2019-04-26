@@ -55,7 +55,7 @@ app.use(methodOverride('_method'));
 
 // add session data
 app.use(session({
-    secret: 'paisley',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }))
