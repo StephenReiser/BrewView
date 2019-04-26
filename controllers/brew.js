@@ -104,7 +104,12 @@ brew.put('/:id', (request, response) => {
 
 /////show route
 brew.get('/:id', (request, response) => {
-    response.render('brew/show.ejs')
+    Brew.findById(request.params.id, (error, currentBrew) => {
+        response.render('brew/show.ejs', {
+            brew: currentBrew
+        })
+
+    })
    
 })
 

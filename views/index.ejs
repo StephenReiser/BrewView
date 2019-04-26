@@ -12,7 +12,7 @@
         <h1>Welcome to Brew View</h1>
         <% brews.forEach((brewery) => {%>
         <div class="row">
-           <%= brewery.name %>
+           <a href='/brew/<%=brewery.id%>'><%= brewery.name %> </a>
            <a href='/brew/<%=brewery.id%>/edit'>Edit</a>
 
           </div>
