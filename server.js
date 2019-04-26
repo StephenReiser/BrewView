@@ -16,6 +16,7 @@ const db = mongoose.connection
 const brewController = require('./controllers/brew')
 const userController = require('./controllers/user')
 const sessionsController = require('./controllers/sessions')
+const reviewsController = require('./controllers/reviews')
 
 //Port
 
@@ -83,7 +84,12 @@ app.use('/users', userController)
 
 ////////////Session Route
 app.use('/sessions', sessionsController)
+
+///////////Review Route///////////////
   
+app.use('/reviews', reviewsController)
+
+
   //___________________
   //Listener
   //___________________

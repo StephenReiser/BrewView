@@ -11,6 +11,23 @@
       <div class="container">
         <h1>Welcome to Brew View</h1>
        <%=brew.name%>
+       <!-- messages -->
+      <div class="main-messages">
+        <!-- post a new message form -->
+        <h1>Add a Review</h1>
+        <form class="new-reviews" action="/reviews/<%=brew.id%>/new" method="post">
+          <textarea name="review" placeholder="Add A REVIEW..."></textarea>
+          <input type="submit" value="POST">
+        </form>
+        <!-- displays all messages -->
+        <h1>Other Reviews</h1>
+        <%# need to loop through the comments array %>
+        <div class='comments'>
+        </div>
+        </div>
+       
+       
+       </div>
 
           </div>
         
