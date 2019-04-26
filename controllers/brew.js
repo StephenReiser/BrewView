@@ -1,4 +1,5 @@
 const express = require('express')
+const sessions = require('express-session')
 const brew = express.Router()
 const request = require('request')
 ///ultimately wil need to require any necessary Model and bcrypt
@@ -13,7 +14,7 @@ const requestFunc = (url) => {
         
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('body:', body); // Print the HTML for the Google homepage.
+        // console.log('body:', body); // Print the HTML for the Google homepage.
         bodyArray = JSON.parse(body)
         
         
@@ -44,18 +45,21 @@ const requestFunc = (url) => {
 ////index route
 
 brew.get('/', (request, response) => {
+    console.log(request)
     Brew.find({},(error, foundBrew) => {
         response.render('index.ejs', {
-            brews: foundBrew
+            brews: foundBrew,
+            currentUser: request.session.currentUser
+            /////Something is broken here, not showing currentuser when making a new sign up - willneed to trouble shoot - works with log ins
         })
-
+        
     })
 })
 
 
-/////////test Seed Route
+///////// Seed Route
 
-brew.get('/testing', (request, response) => {
+brew.get('/seedrouteone', (request, response) => {
     for (i = 0; i < bodyArray.length; i++) {
         console.log('-----------------')
         Brew.create({
@@ -97,19 +101,7 @@ brew.get('/testing', (request, response) => {
 })
 
 
-///////////////////////Seed route///////////Need to get create route up
-const seed = require('../models/seed')
-brew.get('/seedBrews', (request, response) => {
-    // encrypts the given seed passwords
 
-    // seeds the data
-    Brew.create(seed, (err, createdBrews) => {
-      // logs created users
-      console.log(createdBrews);
-      // redirects to index
-      res.redirect('/');
-    });
-  });
   
 
 ///featured route (sort of a show page)

@@ -4,7 +4,7 @@ const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 require('dotenv').config()
-// const session = require('express-session');
+const session = require('express-session');
 const app = express()
 const db = mongoose.connection
 
@@ -14,6 +14,9 @@ const db = mongoose.connection
 /////Routers
 
 const brewController = require('./controllers/brew')
+const userController = require('./controllers/user')
+const sessionsController = require('./controllers/sessions')
+
 //Port
 
 const PORT = process.env.PORT || 3000
@@ -50,11 +53,11 @@ app.use(express.json());// I know we don't need this for now, but adding it in f
 app.use(methodOverride('_method'));
 
 // add session data
-// app.use(session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 ///NOt sure yet about session stuff.  I THINK naming needs to match what heroku wants
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Routes///////////////////////////////////////////////
@@ -71,6 +74,15 @@ app.get('/' , (req, res) => {
     res.redirect('/brew/featured')
     // res.send('Hello World!');
   });
+
+
+
+////////////User Routes//////////////////////
+
+app.use('/users', userController)
+
+////////////Session Route
+app.use('/sessions', sessionsController)
   
   //___________________
   //Listener
