@@ -1,7 +1,42 @@
 const express = require('express')
 const brew = express.Router()
+const request = require('request')
 ///ultimately wil need to require any necessary Model and bcrypt
 const Brew = require('../models/brew')
+let bodyArray = []
+
+
+
+////////request function - probably need to move out of here
+const requestFunc = (url) => {
+    request(url,(error, response, body) => {
+        
+        console.log('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.log('body:', body); // Print the HTML for the Google homepage.
+        bodyArray = JSON.parse(body)
+        
+        
+    
+    })
+    }
+
+    requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=1')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -16,6 +51,45 @@ brew.get('/', (request, response) => {
     })
 })
 
+
+/////////test Seed Route
+
+brew.get('/testing', (request, response) => {
+    for (i = 0; i < bodyArray.length; i++) {
+        Brew.create({
+            name: bodyArray[i].name,
+            address: bodyArray[i].street,
+            city: bodyArray[i].city,
+            state: bodyArray[i].state,
+            zip: bodyArray[i].postal_code,
+            phone: bodyArray[i].phone,
+            email: '',
+            lattitude: Number(bodyArray[i].longitude),
+            longitude: Number(bodyArray[i].latitude),
+            website: bodyArray[i].website_url,
+            mainImage: '',
+            imageTwo: '',
+            imageThree: '',
+            imageFour: '',
+            dogFriendly: 'Not Yet Verified',
+            outsideFood: 'Not Yet Verified',
+            foodTrucks: 'Not Yet Verified',
+            glutenFree: 'Not Yet Verified',
+
+
+
+        }, (error, newBrew) => {
+            if(error) {
+                console.log(error)
+            }
+        })
+        response.send('Added seed data of' + bodyArray[i].name)
+    }
+
+
+    response.send(bodyArray)
+    // response.send('testpage')
+})
 
 
 ///////////////////////Seed route///////////Need to get create route up
