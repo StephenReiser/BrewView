@@ -45,13 +45,15 @@ const requestFunc = (url) => {
 ////index route
 
 brew.get('/', (request, response) => {
-    console.log(request)
+    
     Brew.find({},(error, foundBrew) => {
         response.render('index.ejs', {
             brews: foundBrew,
             currentUser: request.session.currentUser
-            /////Something is broken here, not showing currentuser when making a new sign up - willneed to trouble shoot - works with log ins
+            
+            
         })
+        
         
     })
 })

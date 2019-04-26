@@ -14,6 +14,7 @@ users.post('/', (request, response) => {
         if(error) {
             response.send(error)
         } console.log(createdUser)
+        request.session.currentUser = createdUser.username
             response.redirect('/brew')
     })
 })
