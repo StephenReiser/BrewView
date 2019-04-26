@@ -21,7 +21,8 @@ const requestFunc = (url) => {
     })
     }
 
-    requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=1')
+    requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=5')
+    
 
 
 
@@ -56,17 +57,18 @@ brew.get('/', (request, response) => {
 
 brew.get('/testing', (request, response) => {
     for (i = 0; i < bodyArray.length; i++) {
+        console.log('-----------------')
         Brew.create({
             name: bodyArray[i].name,
-            address: bodyArray[i].street,
-            city: bodyArray[i].city,
-            state: bodyArray[i].state,
-            zip: bodyArray[i].postal_code,
-            phone: bodyArray[i].phone,
+            address: bodyArray[i].street || '',
+            city: bodyArray[i].city || '',
+            state: bodyArray[i].state || '',
+            zip: bodyArray[i].postal_code || '',
+            phone: bodyArray[i].phone || '',
             email: '',
-            lattitude: Number(bodyArray[i].longitude),
-            longitude: Number(bodyArray[i].latitude),
-            website: bodyArray[i].website_url,
+            lattitude: Number(bodyArray[i].longitude) || 0,
+            longitude: Number(bodyArray[i].latitude) || 0,
+            website: bodyArray[i].website_url || 'www.google.com',
             mainImage: '',
             imageTwo: '',
             imageThree: '',
@@ -80,14 +82,17 @@ brew.get('/testing', (request, response) => {
 
         }, (error, newBrew) => {
             if(error) {
-                console.log(error)
+                console.log(bodyArray[i])
             }
         })
-        response.send('Added seed data of' + bodyArray[i].name)
+        
+        // response.send('Added seed data of' + bodyArray[i].name)
+
+      
     }
 
-
-    response.send(bodyArray)
+    response.redirect('/')
+    // response.send(bodyArray)
     // response.send('testpage')
 })
 
@@ -148,7 +153,12 @@ brew.delete('/:id', (request, response) => {
 
 ////////////////////////////Edit Route//////////////////
 brew.get('/:id/edit', (request, response) => {
-    response.render('brew/edit.ejs')
+    Brew.findById(request.params.id, (error, currentBrew) => {
+        response.render('brew/edit.ejs', {
+            brew: currentBrew
+        })
+
+    })
     /////really should have this findByID and then render a form
 })
 
