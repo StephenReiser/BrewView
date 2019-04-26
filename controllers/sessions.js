@@ -11,7 +11,7 @@ sessions.get('/new', (request, response) => {
 sessions.post('/', (request, response)=>{
   User.findOne({ username: request.body.username },(error, foundUser) =>{
     if (bcrypt.compareSync(request.body.password, foundUser.password)) {
-        request.session.currentUser = foundUser
+        request.session.currentUser = foundUser.username
         
         response.redirect('/brew')
     } else {
