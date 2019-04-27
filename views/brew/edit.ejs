@@ -18,127 +18,178 @@
         <input type="submit" value="DELETE"/>
         </form> 
         <div class="row">
-          <form class="col s12" action="/brew" method = "POST" id='brewForm'>
+          <form class="col s12" action="/brew/<%=brew.id; %>?_method=PUT" method = "POST" id='brewForm'>
             <div class="row">
               <div class="input-field col s6">
-                <input id="name" type="text" class="validate" name="name" placeholder='Name (required)' required>
+                <input id="name" type="text" class="validate" name="name" placeholder='Name (required)' value = '<%=brew.name%>' required>
                 
               </div>
             </div>
              <div class="row">
             <div class="input-field col s6">
-                <input id="address" type="text" class="validate" name="address" placeholder='Address (required)' required>
+                <input id="address" type="text" class="validate" name="address" placeholder='Address (required)' value = '<%=brew.address%>' required>
               </div>
             </div>
              <div class="row">
             <div class="input-field col s6">
-                <input id="city" type="text" class="validate" name="city" placeholder='City (required)' required>
+                <input id="city" type="text" class="validate" name="city" placeholder='City (required)' value = '<%=brew.city%>' required>
               </div>
             </div>
              <div class="row">
             <div class="input-field col s6">
-                <input id="state" type="text" class="validate" name="state" placeholder='State (required)' required>
+                <input id="state" type="text" class="validate" name="state" placeholder='State (required)' value = '<%=brew.state%>' required>
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="zip" type="text" class="validate" name="zip" placeholder='Zip Code'>
+                <input id="zip" type="text" class="validate" name="zip" value = '<%=brew.zip%>' placeholder='Zip Code'>
                 
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="phone" type="text" class="validate" name="phone" placeholder='Phone Number'>
+                <input id="phone" type="text" class="validate" name="phone" placeholder='Phone Number' value = '<%=brew.phone%>'>
                 
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="email" type="text" class="validate" name="email" placeholder='Email Address'>
+                <input id="email" type="text" class="validate" name="email" placeholder='Email Address' value = '<%=brew.email%>'>
                 
               </div>
             </div>
             <div class="row">
             <div class="input-field col s6">
-                <input id="lattitude" type="number" class="validate" name="lattitude" step='any' placeholder='Lattitude'>
+                <input id="lattitude" type="number" class="validate" name="lattitude" step='any' placeholder='Lattitude' value = '<%=brew.lattitude%>'>
               </div>
             </div>
              <div class="row">
              <div class="input-field col s6">
-                <input id="longitude" type="number" class="validate" name="longitude" step = 'any' placeholder='Longitude'>
+                <input id="longitude" type="number" class="validate" name="longitude" step = 'any' placeholder='Longitude' value = '<%=brew.longitude%>'>
         
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="website" type="text" class="validate" name="website" placeholder= 'Website URL(required)' required>
+                <input id="website" type="text" class="validate" name="website" placeholder= 'Website URL(required)' value = '<%=brew.website%>' required>
                 
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="mainImage" type="text" class="validate" name="mainImage" placeholder='Image Link'>
+                <input id="mainImage" type="text" class="validate" name="mainImage" placeholder='Image Link' value = '<%=brew.mainImate%>'>
                 
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="imageTwo" type="text" class="validate" name="imageTwo" placeholder='Image #2'>
+                <input id="imageTwo" type="text" class="validate" name="imageTwo" placeholder='Image #2' value = '<%=brew.imageTwo%>'>
                 
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="imageThree" type="text" class="validate" name="imageThree" placeholder='Image #3'>
+                <input id="imageThree" type="text" class="validate" name="imageThree" placeholder='Image #3' value = '<%=brew.imageThree%>'>
                 
               </div>
             </div>
             <div class="row">
              <div class="input-field col s6">
-                <input id="imageFour" type="text" class="validate" name="imageFour" placeholder='Image #4'>
+                <input id="imageFour" type="text" class="validate" name="imageFour" placeholder='Image #4' value = '<%=brew.imageFour%>'>
                 
               </div>
             </div>
               <div class="input-field col s6">
               <select id='dogFriendly' name='dogFriendly' required>
                 <option value="" disabled selected>Choose your option</option>
+                <%if(brew.dogFriendly === 'yes') {%>
+                <option value="yes" selected>Yes</option>
+                <%} else { %>
                 <option value="yes">Yes</option>
+                <% } %>
+                <%if(brew.dogFriendly === 'no') {%>
+                <option value="no" selected>No</option>
+                <%} else { %>
                 <option value="no">No</option>
-                <option value="maybe">Not Verified</option>
+                <% } %>
+                <%if(brew.dogFriendly === 'Not Yet Verified') {%>
+                <option value="Not Yet Verified" selected>Not Verified</option>
+                <%} else { %>
+                <option value="Not Yet Verified">Not Verified</option>
+                <% } %>
               </select>
               <label>Dog Friendly (required)</label>
             </div>
             <div class="input-field col s6">
               <select id='outsideFood' name='outsideFood' required>
                 <option value="" disabled selected>Choose your option</option>
+                <%if(brew.outsideFood === 'yes') {%>
+                <option value="yes" selected>Yes</option>
+                <%} else { %>
                 <option value="yes">Yes</option>
+
+                <% } %>
+                <%if(brew.outsideFood === 'no') {%>
+                <option value="no" selected>No</option>
+                <%} else { %>
                 <option value="no">No</option>
-                <option value="maybe">Not Verified</option>
+                <% } %>
+                <%if(brew.outsideFood === 'Not Yet Verified') {%>
+                <option value="Not Yet Verified" selected>Not Verified</option>
+                <%} else { %>
+                <option value="Not Yet Verified">Not Verified</option>
+                  <% } %>
               </select>
               <label>Outside Food (required)</label>
             </div>
             <div class="input-field col s6">
               <select id='foodTrucks' name='foodTrucks' required>
                 <option value="" disabled selected >Choose your option</option>
+                <%if(brew.foodTrucks === 'yes') {%>
+                <option value="yes" selected>Yes</option>
+                <%} else { %>
                 <option value="yes">Yes</option>
+                <% } %>
+                
+                <%if(brew.foodTrucks === 'no') {%>
+                <option value="no" selected>No</option>
+                <%} else { %>
                 <option value="no">No</option>
-                <option value="maybe">Not Verified</option>
+                <% } %>
+                <%if(brew.foodTrucks === 'Not Yet Verified') {%>
+                <option value="Not Yet Verified" selected>Not Verified</option>
+                <%} else { %>
+                <option value="Not Yet Verified">Not Verified</option>
+                  <% } %>
               </select>
               <label>Food Trucks (required)</label>
             </div>
             <div class="input-field col s6">
               <select id='glutenFree' name='glutenFree' required>
                 <option value="" disabled selected >Choose your option</option>
+                 <%if(brew.glutenFree === 'yes') {%>
+                <option value="yes" selected>Yes</option>
+                <%} else { %>
                 <option value="yes">Yes</option>
+                <% } %>
+                
+                <%if(brew.glutenFree === 'no') {%>
+                <option value="no" selected>No</option>
+                <%} else { %>
                 <option value="no">No</option>
-                <option value="maybe">Not Verified</option>
+                <% } %>
+                <%if(brew.glutenFree === 'Not Yet Verified') {%>
+                <option value="Not Yet Verified" selected>Not Verified</option>
+                <%} else { %>
+                <option value="Not Yet Verified">Not Verified</option>
+                  <% } %>
               </select>
               <label>Gluten Free (required)</label>
             </div>
            
             
             <button class="btn waves-effect waves-light" type="submit" name="action">
-              <i class="material-icons right">Create</i>
+              <i class="material-icons right">Edit</i>
             </button>
           </form>
           </div>

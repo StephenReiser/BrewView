@@ -100,7 +100,7 @@ brew.get('/seedrouteone', (request, response) => {
       
     }
 
-    response.redirect('/')
+    response.redirect('/brew')
     // response.send(bodyArray)
     // response.send('testpage')
 })
@@ -165,7 +165,13 @@ brew.get('/:id/edit', (request, response) => {
 brew.put('/:id', (request, response) => {
     /////should do a findByIdAndUpdate
     ////
-    response.send('something')
+    Brew.findByIdAndUpdate(request.params.id, {
+        $set: request.body
+    }, {new: true}, (error, newBrew) => {
+        if(error) {
+            console.log(error)
+        } response.redirect('/brew')
+    } )
 })
 
 
