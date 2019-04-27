@@ -23,6 +23,8 @@ const requestFunc = (url) => {
     }
 
     requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=5')
+
+    /////I think I should put this in each of the seed routes
     
 
 
@@ -62,6 +64,7 @@ brew.get('/', (request, response) => {
 ///////// Seed Route
 
 brew.get('/seedrouteone', (request, response) => {
+
     for (i = 0; i < bodyArray.length; i++) {
         console.log('-----------------')
         Brew.create({
@@ -170,9 +173,10 @@ brew.put('/:id', (request, response) => {
 brew.get('/:id', (request, response) => {
     Brew.findById(request.params.id, (error, currentBrew) => {
         response.render('brew/show.ejs', {
-            brew: currentBrew
+            brew: currentBrew,
+            currentUser: request.session.currentUser
         })
-
+        // console.log(request.session.currentUser)
     })
    
 })

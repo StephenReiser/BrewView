@@ -6,6 +6,7 @@
   </head>
     <body>
     <nav>
+    <a href='/brew'>Home</a>
     <a href='/brew/new'>Add New</a>
     </nav>
       <div class="container">
@@ -14,15 +15,27 @@
        <!-- messages -->
       <div class="main-messages">
         <!-- post a new message form -->
+        <%if(currentUser) {%>
+
+        <h3><%=currentUser%></h3>
         <h1>Add a Review</h1>
         <form class="new-reviews" action="/reviews/<%=brew.id%>/new" method="post">
           <textarea name="review" placeholder="Add A REVIEW..."></textarea>
           <input type="submit" value="POST">
         </form>
+        <%}%>
+
+          <!--------Above section allows only logged in users to submit a review----->
+
+
         <!-- displays all messages -->
         <h1>Other Reviews</h1>
         <%# need to loop through the comments array %>
         <div class='comments'>
+      <%brew.comments.forEach((review, key) => { %>
+        <%=review.username%>: <%=review.userComments%>
+        </br>
+      <%})%>
         </div>
         </div>
        

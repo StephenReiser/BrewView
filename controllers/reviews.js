@@ -26,7 +26,7 @@ reviews.post ('/:id/new', (request, response) => {
     console.log(request.params.id)
     console.log(request.body.review)
     let review = {
-        username: request.session.currentUser.username,
+        username: request.session.currentUser,
         userComments: request.body.review
     }
     console.log(review)
@@ -41,7 +41,7 @@ reviews.post ('/:id/new', (request, response) => {
             console.log(error)
         } console.log(reviewed)
       
-      response.redirect('/brew');
+      response.redirect('/brew/'+request.params.id);
   });
 });
 
