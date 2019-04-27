@@ -32,8 +32,9 @@
           center: myLatLng
         });
 
-        ////////basically here I need to make a loop to loop thru DB and create the markers
+        ////////basically here I need to make a loop to loop thru DB and create the markers - This all works = ocuple issues - pop up not working at the moment - would like to get content string to display as an info window the logic in it is currently wrong, should be fixable.  Also should add in if statement to weed out stuff with out a lat/long.  google maps wont load at all if one of them is busted
         <%for (let i = 0; i < brews.length; i++) {%>
+        <%if(brews[i].latitude && brews[i].longitude) { %>
         new google.maps.Marker({
           position: {lat: <%=brews[i].latitude%>, lng: <%=brews[i].longitude%>},
           map: map,
@@ -56,7 +57,7 @@
 
 
 <%}%>
-        
+  <%}%>      
 
         
       }
