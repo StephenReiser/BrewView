@@ -5,6 +5,7 @@ const request = require('request')
 ///ultimately wil need to require any necessary Model and bcrypt
 const Brew = require('../models/brew')
 let bodyArray = []
+let secondBodyArray = []
 
 
 
@@ -22,9 +23,24 @@ const requestFunc = (url) => {
     })
     }
 
-    requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=5')
+    requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
 
     /////I think I should put this in each of the seed routes
+    const secondRequestFunc = (url) => {
+        request(url,(error, response, body) => {
+            
+            console.log('error:', error); // Print the error if one occurred
+            console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            // console.log('body:', body); // Print the HTML for the Google homepage.
+            secondBodyArray = JSON.parse(body)
+            
+            
+        
+        })
+        }
+    
+        requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
+        secondRequestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=2&per_page=50')
     
 
 
@@ -64,7 +80,8 @@ brew.get('/', (request, response) => {
 ///////// Seed Route
 
 brew.get('/seedrouteone', (request, response) => {
-
+    console.log(bodyArray)
+    console.log(bodyArray.length)
     for (i = 0; i < bodyArray.length; i++) {
         console.log('-----------------')
         Brew.create({
@@ -102,6 +119,52 @@ brew.get('/seedrouteone', (request, response) => {
 
     response.redirect('/brew')
     // response.send(bodyArray)
+    // response.send('testpage')
+})
+
+
+///////second seed route
+
+brew.get('/seedroutetwo', (request, response) => {
+    // console.log(secondBodyArray)
+    // console.log(secondBodyArray.length)
+    for (i = 0; i < secondBodyArray.length; i++) {
+        console.log('-----------------')
+        Brew.create({
+            name: secondBodyArray[i].name,
+            address: secondBodyArray[i].street || '',
+            city: secondBodyArray[i].city || '',
+            state: secondBodyArray[i].state || '',
+            zip: secondBodyArray[i].postal_code || '',
+            phone: secondBodyArray[i].phone || '',
+            email: '',
+            latitude: Number(secondBodyArray[i].latitude) || 0,
+            longitude: Number(secondBodyArray[i].longitude) || 0,
+            website: secondBodyArray[i].website_url || 'www.google.com',
+            mainImage: '',
+            imageTwo: '',
+            imageThree: '',
+            imageFour: '',
+            dogFriendly: 'Not Yet Verified',
+            outsideFood: 'Not Yet Verified',
+            foodTrucks: 'Not Yet Verified',
+            glutenFree: 'Not Yet Verified',
+
+
+
+        }, (error, newBrew) => {
+            if(error) {
+                console.log(secondBodyArray[i])
+            }
+        })
+        
+        // response.send('Added seed data of' + secondBodyArray[i].name)
+
+      
+    }
+
+    response.redirect('/brew')
+    // response.send(secondBodyArray)
     // response.send('testpage')
 })
 

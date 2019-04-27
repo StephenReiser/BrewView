@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const brewSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    address: {type: String, required: true},
+    address: String,
     city: {type: String, required: true},
     state: {type: String, required: true},
     zip: String,
