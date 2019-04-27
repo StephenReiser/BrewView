@@ -13,7 +13,7 @@
   </head>
     <body>
       <div class="container">
-        <h1>Fake Edit Page</h1>
+        <h1><%=brew.name%> Edit Page</h1>
         <form action="/brew/<%=brew.id; %>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE"/>
         </form> 
@@ -60,7 +60,7 @@
             </div>
             <div class="row">
             <div class="input-field col s6">
-                <input id="lattitude" type="number" class="validate" name="lattitude" step='any' placeholder='Lattitude' value = '<%=brew.lattitude%>'>
+                <input id="latitude" type="number" class="validate" name="latitude" step='any' placeholder='Latitude' value = '<%=brew.latitude%>'>
               </div>
             </div>
              <div class="row">
@@ -189,7 +189,7 @@
            
             
             <button class="btn waves-effect waves-light" type="submit" name="action">
-              <i class="material-icons right">Edit</i>
+              <i class="material-icons">Edit</i>
             </button>
           </form>
           </div>

@@ -8,7 +8,7 @@ const brewSchema = new mongoose.Schema({
     zip: String,
     phone: String,
     email: String,
-    lattitude: Number,
+    latitude: Number,
     longitude: Number,
     website: String,
     mainImage: String,

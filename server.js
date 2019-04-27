@@ -7,7 +7,7 @@ require('dotenv').config()
 const session = require('express-session');
 const app = express()
 const db = mongoose.connection
-
+const Brew = require('./models/brew')
 
 
 
@@ -27,6 +27,10 @@ const PORT = process.env.PORT || 3000
 //database
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/BrewView'
 
+///API
+
+const API = process.env.API
+const googleURL = "https://maps.googleapis.com/maps/api/js?key=" +API+ "&callback=initMap"
 //need to figure out how to put stuff in env
 
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
@@ -76,6 +80,21 @@ app.get('/' , (req, res) => {
     // res.send('Hello World!');
   });
 
+  /////////////////////////Map Route//////////////
+
+  app.get('/map', (request, response) =>{
+    Brew.find({},(error, foundBrew) => {
+      response.render('map/map.ejs', {
+          brews: foundBrew,
+          googleURL: googleURL
+          
+          
+          
+      })
+      
+      
+  })
+  })
 
 
 ////////////User Routes//////////////////////

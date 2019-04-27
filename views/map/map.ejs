@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+  <nav>
+  <a href='/brew'>HOME PAGE</a>
+  </nav>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var myLatLng = {lat: 41.363123, lng: -72.919123};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: myLatLng
+        });
+
+        ////////basically here I need to make a loop to loop thru DB and create the markers
+        <%for (let i = 0; i < brews.length; i++) {%>
+        new google.maps.Marker({
+          position: {lat: <%=brews[i].latitude%>, lng: <%=brews[i].longitude%>},
+          map: map,
+          title: '<%=brews[i].name%>',
+          stuff: 'blah blah',
+         contentString: '<div id="content">'+'<a href="www.google.com">words</a>'+'</div>'
+        
+        }).addListener('click', (event) => {
+                // let infowindow = new google.maps.InfoWindow({
+                //     content: this.title
+                    
+                // })
+                // console.log(this.title)
+                // infowindow.open(event.currentTarget.get('map'), event.currentTarget)
+                // alert(stuff)
+                window.location.href = '/brew/<%=brews[i].id%>'
+        })
+
+
+
+
+<%}%>
+        
+
+        
+      }
+    </script>
+    <script src=<%=googleURL%>
+    async defer></script>
+  </body>
+</html>
