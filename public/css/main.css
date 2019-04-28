@@ -10,10 +10,10 @@ nav {
     z-index: 1
     /* this makes it a sticky nav */
 }
-.container{
+/* .container{
     padding-top: 10%;
      /* this is pushing the content down so its not behind the nav */
-}
+} */
 #map {
     height: 70%;
     width: 75%;
