@@ -1,0 +1,28 @@
+   <nav>
+    <div class='nav-wrapper'>
+    <ul class='right'>
+  <%if (currentUser) {%>
+    <li><a href='/brew'>Home</a></li>
+    <li><a href='/brew/new'>Add New</a></li>
+    <li><form action="/sessions?_method=DELETE" method="POST">
+    <input type="submit" value="Logout" class="waves-effect waves-light btn"/>
+</form>
+</li>
+
+  <%} else {%>
+    <li><a href='/brew'>Home</a></li>
+    <li><a href='/users/new'>Sign Up</a></li>
+    <li><a href='/sessions/new'>Log In</a></li>
+    <%}%>
+
+<%# below is a search bar - currently doesn't doing anything and looks bad, but I'd like to keep this in here %>
+<%# <li><form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form></li> %>
+</ul>
+</div>
+</nav>

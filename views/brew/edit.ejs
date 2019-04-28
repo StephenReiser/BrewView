@@ -10,8 +10,10 @@
   <script src='/js/main.js'> </script>
     <!-- CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel='stylesheet' href='../css/main.css'>
   </head>
     <body>
+    <% include ../partials/nav.ejs%>
       <div class="container">
         <h1><%=brew.name%> Edit Page</h1>
         <form action="/brew/<%=brew.id; %>?_method=DELETE" method="POST">

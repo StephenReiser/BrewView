@@ -215,7 +215,8 @@ brew.delete('/:id', (request, response) => {
 brew.get('/:id/edit', (request, response) => {
     Brew.findById(request.params.id, (error, currentBrew) => {
         response.render('brew/edit.ejs', {
-            brew: currentBrew
+            brew: currentBrew,
+            currentUser: request.session.currentUser
         })
 
     })

@@ -3,16 +3,11 @@
   <head>
     <!-- CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel='stylesheet' href='./css/main.css'>
   </head>
     <body>
-    <nav>
-    <a href='/brew/new'>Add New</a>
-    <a href='/users/new'>Sign Up</a>
-    <a href='/sessions/new'>Log In</a>
-      <form action="/sessions?_method=DELETE" method="POST">
-    <input type="submit" value="Logout" class="waves-effect waves-light btn"/>
-</form>
-    </nav>
+ <% include ./partials/nav.ejs%>
+
       <div class="container">
         <h1>Welcome to Brew View</h1>
         <% if(currentUser){ %>

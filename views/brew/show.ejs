@@ -3,12 +3,10 @@
   <head>
     <!-- CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel='stylesheet' href='../css/main.css'>
   </head>
     <body>
-    <nav>
-    <a href='/brew'>Home</a>
-    <a href='/brew/new'>Add New</a>
-    </nav>
+    <% include ../partials/nav.ejs%>
       <div class="container">
         <h1>Welcome to Brew View</h1>
        <%=brew.name%>

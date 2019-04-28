@@ -86,7 +86,8 @@ app.get('/' , (req, res) => {
     Brew.find({},(error, foundBrew) => {
       response.render('map/map.ejs', {
           brews: foundBrew,
-          googleURL: googleURL
+          googleURL: googleURL,
+          currentUser: request.session.currentUser
           
           
           
