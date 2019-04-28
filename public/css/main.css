@@ -5,7 +5,30 @@ body {
 
 nav {
     background-color: #FF7F50;
+    position: sticky;
+    top: 0;
+    z-index: 1
+    /* this makes it a sticky nav */
+}
+.container{
+    padding-top: 10%;
+     /* this is pushing the content down so its not behind the nav */
+}
+#map {
+    height: 70%;
+    width: 75%;
+    margin: 12% auto;
+  }
+  /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      
+      /* map is a little busted at small sizes - will need to fix */
+
+
+.reviewInputBox {
+    background-color: white;
 }
 
+/* NOtes to self - log out button seems to be busted on certain pages - works but looks funny.  On maps page, not convinced I like dark grey body color */
 
-/* NOtes to self - log out button seems to be busted on certain pages - works but looks funny */
+/*  */

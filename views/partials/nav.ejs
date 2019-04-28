@@ -1,5 +1,14 @@
    <nav>
+   
+   
+   
     <div class='nav-wrapper'>
+    <%if (currentUser) {%>
+    <ul class='left'>
+    <li>Hello, <%=currentUser%></li>
+   </ul>
+
+     <%}%>
     <ul class='right'>
   <%if (currentUser) {%>
     <li><a href='/brew'>Home</a></li>

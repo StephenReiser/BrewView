@@ -11,6 +11,12 @@ $(document).ready(function(){
 
     ///hamburger snippet from materialize
     $('.sidenav').sidenav();
+    $('.carousel').carousel();
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true,
+      indicators: true
+    });
+         
   });
 
 

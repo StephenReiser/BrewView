@@ -14,14 +14,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
      <link rel='stylesheet' href='../css/main.css'>
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 70%;
-        width: 75%;
-        padding: 2% auto;
-        margin: 2% auto;
-      }
+      
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
@@ -33,6 +26,26 @@
   </head>
   <body>
   <% include ../partials/nav.ejs%>
+  <div class='container'>
+    <div class="carousel carousel-slider center">
+    <div class="carousel-fixed-item center">
+      <%# <a class="btn waves-effect white grey-text darken-text-2">button</a> %>
+    </div>
+    <div class="carousel-item" href="#one!">
+      <%# <h2>First Panel</h2> %>
+      <img src='https://static.vinepair.com/wp-content/uploads/2017/11/tree-house-brewing-facts-inside.jpg'>
+    </div>
+    <div class="carousel-item amber white-text" href="#two!">
+      <img src='https://thefullpint.com/wp-content/uploads/trillium_little_rooster.jpg'>>
+    </div>
+    <div class="carousel-item green white-text" href="#three!">
+      <img src='https://static.wixstatic.com/media/f4db69_7568fadaf1854092bb31f7948458cf56.png/v1/fill/w_265,h_265,al_c,usm_0.66_1.00_0.01/f4db69_7568fadaf1854092bb31f7948458cf56.png'>
+    </div>
+    <div class="carousel-item blue white-text" href="#four!">
+      <img src='https://craftpeak-cooler-images.imgix.net/half-full-brewery/favicon-01.png?auto=compress%2Cformat&ixlib=php-1.2.1'>
+    </div>
+  </div>
+  </div>
     <div id="map"></div>
     <script>
       function initMap() {
