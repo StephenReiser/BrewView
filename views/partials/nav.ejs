@@ -7,17 +7,27 @@
     <ul class='left'>
     <li>Hello, <%=currentUser%></li>
     <li><a href = '/map#map'>Map</a></li>
-    <li><form action="/search" method = "GET">
-          <input id="search autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
-      </form></li>
+    <li>
+    <div class='row'>
+    <div class='col s12'>
+    <form action="/search" method = "GET">
+          <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
+      </form>
+      </div>
+      </div></li>
    </ul>
 
      <%} else {%>
     <ul class='left'>
     <li><a href = '/map#map'>Map</a></li>
-    <li><form action="/search" method = "GET">
-          <input id="search autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
-      </form></li>
+  <li>
+    <div class='row'>
+    <div class='col s12'>
+    <form action="/search" method = "GET">
+          <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
+      </form>
+      </div>
+      </div></li>
    </ul>
      <%}%>
     <ul class='right'>

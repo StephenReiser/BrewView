@@ -3,6 +3,15 @@ const users = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
+users.get('/new/error', (request, response) => {
+    // response.render('user/newerror.ejs', {
+    //     currentUser: request.session.currentUser
+    // })
+    response.send('Error')
+
+    //not sure why this doesn't work, but feels liek it should
+    
+})
 users.get('/new', (request, response) => {
     response.render('user/new.ejs', {
         currentUser: request.session.currentUser
@@ -10,12 +19,14 @@ users.get('/new', (request, response) => {
     
 })
 
+////////This is giving an error and causing nodemon to crash if there is a duplicate user
+
 users.post('/', (request, response) => {
     request.body.password = bcrypt.hashSync(request.body.password, bcrypt.genSaltSync(10))
     User.create(request.body, (error, createdUser)=> {
         if(error) {
-            response.send(error)
-        } console.log(createdUser)
+            response.redirect('/users/new/error')
+        } 
         request.session.currentUser = createdUser.username
             response.redirect('/map')
     })

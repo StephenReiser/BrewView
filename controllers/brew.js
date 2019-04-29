@@ -7,7 +7,15 @@ const Brew = require('../models/brew')
 let bodyArray = []
 let secondBodyArray = []
 
-
+const isAuthenticated = (request, response, next) => {
+  if(request.session.currentUser) {
+      
+      return next()
+      //next() is a function that passes control to the next middleware function.  this does not end the request-response cycle, sort of passes it off to the next piece of the cycle
+  } else {
+      response.redirect('/')
+  }
+}
 
 ////////request function - probably need to move out of here
 const requestFunc = (url) => {
@@ -212,7 +220,7 @@ brew.delete('/:id', (request, response) => {
 
 
 ////////////////////////////Edit Route//////////////////
-brew.get('/:id/edit', (request, response) => {
+brew.get('/:id/edit', isAuthenticated, (request, response) => {
     Brew.findById(request.params.id, (error, currentBrew) => {
         response.render('brew/edit.ejs', {
             brew: currentBrew,
