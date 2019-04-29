@@ -63,7 +63,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-///NOt sure yet about session stuff.  I THINK naming needs to match what heroku wants
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Routes///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -108,6 +108,25 @@ app.use('/sessions', sessionsController)
 ///////////Review Route///////////////
   
 app.use('/reviews', reviewsController)
+
+app.get('/search', (request, response) => {
+  Brew.findOne({
+    name: request.query.search
+  }, (error, foundBrew)=> {
+    if (error) {
+      console.log(error)
+    } else {
+      console.log('brew/' + foundBrew._id)
+      response.redirect('/brew/'+foundBrew._id)
+      //     brew: foundBrew
+
+      // })
+    }
+
+  })
+  // response.send(request.query.search)
+  // response.redirect('/search')
+})
 
 
   //___________________

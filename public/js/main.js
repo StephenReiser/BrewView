@@ -4,6 +4,7 @@ console.log('test')
 
 
 
+
 ////////////////////Map Marker Maker function
 
 
@@ -18,7 +19,6 @@ console.log('test')
 
 ////jQuery doc on ready
 $(document).ready(function(){
-
     ////this is a snippet from materialize
     $('select').formSelect();
 
@@ -29,6 +29,13 @@ $(document).ready(function(){
       fullWidth: true,
       indicators: true
     });
+    // $('input.autocomplete').autocomplete({
+    //   data: {
+    //     "Apple": null,
+    //     "Microsoft": null,
+    //     "Google": 'https://placehold.it/250x250'
+    //   },
+    // });
 
    
          
