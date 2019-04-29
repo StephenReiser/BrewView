@@ -114,9 +114,13 @@ app.get('/search', (request, response) => {
     name: request.query.search
   }, (error, foundBrew)=> {
     if (error) {
-      console.log(error)
+      // console.log(error)
+      redirect('/brew')
+    } else if (foundBrew === null) {
+      
+      response.redirect('/brew')
     } else {
-      console.log('brew/' + foundBrew._id)
+      // console.log('brew/' + foundBrew._id)
       response.redirect('/brew/'+foundBrew._id)
       //     brew: foundBrew
 

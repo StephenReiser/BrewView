@@ -15,8 +15,8 @@
      <%} else {%>
     <ul class='left'>
     <li><a href = '/map#map'>Map</a></li>
-    <li><form>
-          <input id="search autocomplete-input" class='autocomplete' type="search" placeholder='Search Breweries' required>
+    <li><form action="/search" method = "GET">
+          <input id="search autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
       </form></li>
    </ul>
      <%}%>
