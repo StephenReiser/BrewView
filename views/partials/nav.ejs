@@ -6,9 +6,19 @@
     <%if (currentUser) {%>
     <ul class='left'>
     <li>Hello, <%=currentUser%></li>
-    
+    <li><a href = '/map#map'>Map</a></li>
+    <li><form>
+          <input id="search" type="search" placeholder='Search Breweries' required>
+      </form></li>
    </ul>
 
+     <%} else {%>
+    <ul class='left'>
+    <li><a href = '/map#map'>Map</a></li>
+    <li><form>
+          <input id="search" type="search" placeholder='Search Breweries' required>
+      </form></li>
+   </ul>
      <%}%>
     <ul class='right'>
   <%if (currentUser === 'TestUser1') {%>

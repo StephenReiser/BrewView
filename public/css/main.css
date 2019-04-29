@@ -46,3 +46,8 @@ nav {
 /* NOtes to self - log out button seems to be busted on certain pages - works but looks funny.  On maps page, not convinced I like dark grey body color */
 
 /*  */
+
+
+#search{
+    border-bottom: none
+}

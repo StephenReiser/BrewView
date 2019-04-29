@@ -48,6 +48,8 @@
     <div id="map"></div>
   </div>
     <script>
+
+
       function initMap() {
         var myLatLng = {lat: 41.55, lng: -72.7};
 
@@ -57,18 +59,38 @@
         });
 
         ////////basically here I need to make a loop to loop thru DB and create the markers - This all works = ocuple issues - pop up not working at the moment - would like to get content string to display as an info window the logic in it is currently wrong, should be fixable.  Also should add in if statement to weed out stuff with out a lat/long.  google maps wont load at all if one of them is busted
+let marker, i;
+let contentString = ''
+let infowindow = ''
+let breweryLoc = {lat: 0, lng: 0}
+
         <%for (let i = 0; i < brews.length; i++) {%>
         <%if(brews[i].latitude && brews[i].longitude) { %>
-        new google.maps.Marker({
+        
+          contentString = '<div id="content">'+'<a href="www.google.com"><%=brews[i].name%></a>'+'</div>'
+          // breweryLoc = {lat: <%=brews[i].latitude%>, lng: <%=brews[i].longitude%>}
+         
+          
+    
+        marker = new google.maps.Marker({
           position: {lat: <%=brews[i].latitude%>, lng: <%=brews[i].longitude%>},
           map: map,
           title: '<%=brews[i].name%>',
           stuff: 'blah blah',
-         contentString: '<div id="content">'+'<a href="www.google.com">words</a>'+'</div>'
+         
         
-        }).addListener('click', (event) => {
-                // let infowindow = new google.maps.InfoWindow({
-                //     content: this.title
+        })
+        infowindow = new google.maps.InfoWindow({
+            content: contentString,
+          })
+          marker.infowindow = infowindow
+
+        // doing it this way all of the infowindows are going to the the woodbury locations
+          // infowindow.setContent(contentString)
+          // infowindow.setPosition(marker.position)
+        marker.addListener('click', function(){
+          // let infowindow = new google.maps.InfoWindow({
+            //     content: this.title
                     
                 // })
                 // console.log(this.title)
@@ -77,15 +99,23 @@
                 // let infowindow = new google.maps.InfoWindow()
                 // infowindow.setContent('words')
                 // infowindow.open(map,this)
-                window.location.href = '/brew/<%=brews[i].id%>'
-        })
+                // window.location.href = '/brew/<%=brews[i].id%>'
+          // console.log(breweryLoc)
 
+                 
+                
+                this.infowindow.open(map, this)
+
+
+                
+        })
 
 
 
 <%}%>
   <%}%>      
 
+    
         
       }
     </script>

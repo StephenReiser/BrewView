@@ -95,19 +95,20 @@
 
         <!-- displays all messages -->
         <h5>Reviews</h5>
-        <%# need to loop through the comments array %>
-        <%# I think this needs to loop backwards %>
-        <div class='comments'>
-      <%brew.comments.forEach((review, key) => { %>
-      <div class='row'>
+
+
+      <%for (let i = brew.comments.length-1; i >= 0; i--) {%>
+<div class='row'>
       <div class="chip">
-    <%=review.username%>: 
+      <%=brew.comments[i].username%>: 
     </div>
     <div>
-        <%=review.userComments%>
+        <%=brew.comments[i].userComments%>
         </div>
         </div>
-      <%})%>
+      
+
+      <%}%>
         </div>
         </div>
        
