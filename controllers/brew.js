@@ -65,7 +65,7 @@ const requestFunc = (url) => {
 brew.get('/', (request, response) => {
     
     Brew.find({},(error, foundBrew) => {
-        response.render('index.ejs', {
+        response.render('oldindex.ejs', {
             brews: foundBrew,
             currentUser: request.session.currentUser
             
@@ -117,7 +117,7 @@ brew.get('/seedrouteone', (request, response) => {
       
     }
 
-    response.redirect('/brew')
+    response.redirect('/map')
     // response.send(bodyArray)
     // response.send('testpage')
 })
@@ -163,7 +163,7 @@ brew.get('/seedroutetwo', (request, response) => {
       
     }
 
-    response.redirect('/brew')
+    response.redirect('/map')
     // response.send(secondBodyArray)
     // response.send('testpage')
 })
@@ -194,7 +194,7 @@ brew.post('/', (request, response) => {
         if(error) {
             console.log(error)
         } console.log(createdBrew)
-        response.redirect('/brew')
+        response.redirect('/map')
     })
 })
 
@@ -234,7 +234,7 @@ brew.put('/:id', (request, response) => {
     }, {new: true}, (error, newBrew) => {
         if(error) {
             console.log(error)
-        } response.redirect('/brew')
+        } response.redirect('/map')
     } )
 })
 

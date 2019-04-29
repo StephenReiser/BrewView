@@ -22,7 +22,7 @@
      <%}%>
     <ul class='right'>
   <%if (currentUser === 'TestUser1') {%>
-    <li><a href='/brew'>Home</a></li>
+    <li><a href='/map'>Home</a></li>
     <li><a href='/brew/new'>Add New</a></li>
     <li><form action="/sessions?_method=DELETE" method="POST">
     <input type="submit" value="Logout" class="btn"/>
@@ -37,7 +37,7 @@
 </form>
 </li>
  <% } else {%>
-    <li><a href='/brew'>Home</a></li>
+    <li><a href='/map'>Home</a></li>
     <li><a href='/users/new'>Sign Up</a></li>
     <li><a href='/sessions/new'>Log In</a></li>
     <%}%>

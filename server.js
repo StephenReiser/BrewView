@@ -76,7 +76,7 @@ app.use('/brew', brewController)
 
 /////landing page
 app.get('/' , (req, res) => {
-    res.redirect('/brew/featured')
+    res.redirect('/map')
     // res.send('Hello World!');
   });
 
@@ -84,7 +84,7 @@ app.get('/' , (req, res) => {
 
   app.get('/map', (request, response) =>{
     Brew.find({},(error, foundBrew) => {
-      response.render('map/map.ejs', {
+      response.render('index.ejs', {
           brews: foundBrew,
           googleURL: googleURL,
           currentUser: request.session.currentUser

@@ -53,3 +53,11 @@ nav {
 #search{
     border-bottom: none
 }
+
+.centerHeader {
+    text-align: center;
+}
+
+.content {
+    color: black;
+}

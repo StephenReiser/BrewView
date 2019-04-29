@@ -15,7 +15,7 @@ users.post('/', (request, response) => {
             response.send(error)
         } console.log(createdUser)
         request.session.currentUser = createdUser.username
-            response.redirect('/brew')
+            response.redirect('/map')
     })
 })
 module.exports = users

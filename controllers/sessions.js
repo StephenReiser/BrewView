@@ -13,16 +13,16 @@ sessions.post('/', (request, response)=>{
     if (bcrypt.compareSync(request.body.password, foundUser.password)) {
         request.session.currentUser = foundUser.username
         
-        response.redirect('/brew')
+        response.redirect('/map')
     } else {
-        response.send(('<a href="/brew">wrong password</a>'))
+        response.send(('<a href="/map">wrong password</a>'))
     }
   })
 })
 
 sessions.delete('/', (request, response) => {
     request.session.destroy(()=>{
-        response.redirect('/brew')
+        response.redirect('/map')
     })
 })
 
