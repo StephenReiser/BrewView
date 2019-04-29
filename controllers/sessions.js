@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt')
 
 
 sessions.get('/new', (request, response) => {
-    response.render('sessions/new.ejs')
+    response.render('sessions/new.ejs', {
+        currentUser: request.session.currentUser
+    })
 })
 
 sessions.post('/', (request, response)=>{

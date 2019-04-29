@@ -4,7 +4,9 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
 users.get('/new', (request, response) => {
-    response.render('user/new.ejs')
+    response.render('user/new.ejs', {
+        currentUser: request.session.currentUser
+    })
     
 })
 
