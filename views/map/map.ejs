@@ -26,7 +26,7 @@
   </head>
   <body>
   <% include ../partials/nav.ejs%>
-  <div class='container'>
+  <div class='container mapContainer'>
     <div class="carousel carousel-slider center">
     <div class="carousel-fixed-item center">
       <%# <a class="btn waves-effect white grey-text darken-text-2">button</a> %>
@@ -45,8 +45,8 @@
       <img src='https://craftpeak-cooler-images.imgix.net/half-full-brewery/favicon-01.png?auto=compress%2Cformat&ixlib=php-1.2.1'>
     </div>
   </div>
-  </div>
     <div id="map"></div>
+  </div>
     <script>
       function initMap() {
         var myLatLng = {lat: 41.55, lng: -72.7};

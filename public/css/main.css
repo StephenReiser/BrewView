@@ -4,21 +4,32 @@ body {
 }
 
 nav {
-    background-color: #FF7F50;
+    background-color: rgb(224, 120, 53);
     position: sticky;
     top: 0;
     z-index: 1
     /* this makes it a sticky nav */
 }
+
+.nav-wrapper {
+    padding: 0 2%
+}
 /* .container{
     padding-top: 10%;
-     /* this is pushing the content down so its not behind the nav */
+     /* this is pushing the content down so its not behind the nav
 } */
 #map {
+    height: 100%;
+    width: 100%;
+    margin: 2% auto;
+  }
+
+.mapContainer {
     height: 70%;
     width: 75%;
-    margin: 12% auto;
-  }
+    margin: 5% auto;
+}
+/* this is some weird stuff goign on in here that it doesn't resize nice */
   /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       
@@ -27,6 +38,9 @@ nav {
 
 .reviewInputBox {
     background-color: white;
+}
+.btn {
+    /* background-color: rgb(156, 223, 253) */
 }
 
 /* NOtes to self - log out button seems to be busted on certain pages - works but looks funny.  On maps page, not convinced I like dark grey body color */
