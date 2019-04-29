@@ -24,11 +24,16 @@ $(document).ready(function(){
 
     ///hamburger snippet from materialize
     $('.sidenav').sidenav();
-    $('.carousel').carousel();
+    $('.carousel').carousel(
+    );
     $('.carousel.carousel-slider').carousel({
       fullWidth: true,
-      indicators: true
+      indicators: true,
     });
+
+    setInterval(() => {
+      $('.carousel').carousel('next');
+    }, 4000);
     // $('input.autocomplete').autocomplete({
     //   data: {
     //     "Apple": null,
