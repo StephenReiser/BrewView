@@ -189,7 +189,9 @@ brew.get('/featured', (request, response) => {
 
 ////////////New Route (visible)
 brew.get('/new', (request, response) => {
-    response.render('brew/new.ejs')
+    response.render('brew/new.ejs', {
+        currentUser: request.session.currentUser
+    })
 }
 )
 
