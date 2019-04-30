@@ -3,8 +3,10 @@
    
    
     <div class='nav-wrapper'>
+       <a href="#!" class="brand-logo center">BrewView</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <%if (currentUser) {%>
-    <ul class='left'>
+    <ul class='left hide-on-med-and-down'>
     <li>Hello, <%=currentUser%></li>
     <li><a href = '/map#map'>Map</a></li>
     <li>
@@ -21,7 +23,7 @@
    </ul>
 
      <%} else {%>
-    <ul class='left'>
+    <ul class='left hide-on-med-and-down'>
     <li><a href = '/map#map'>Map</a></li>
   <li>
     <div class='row'>
@@ -33,7 +35,8 @@
       </div></li>
    </ul>
      <%}%>
-    <ul class='right'>
+    <ul class='right hide-on-med-and-down'>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger">menu</a>
   <%if (currentUser === 'TestUser1') {%>
     <li><a href='/map'>Home</a></li>
     <li><a href='/brew/new'>Add New</a></li>
@@ -66,3 +69,64 @@
 </ul>
 </div>
 </nav>
+
+ <ul class="sidenav" id="mobile-demo">
+   <%if (currentUser === 'TestUser1') {%>
+    <li class='intro'>Hello, <%=currentUser%></li>
+    <li><a href='/map'>Home</a></li>
+    <li><a href='/brew/new'>Add New</a></li>
+    <li><a href = '/map#map'>Map</a></li>
+    <li>
+    <div class='row'>
+    <form action="/search" method = "GET">
+    <div class='col s12 search input-field'>
+          <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
+      </div>
+      <!-----<div class='col s3'>
+          <button type='submit'>Search</button>
+         <div> ----->
+      </form>
+      </div></li>
+    <li><form action="/sessions?_method=DELETE" method="POST">
+    <input type="submit" value="Logout" class="btn"/>
+</form>
+</li>
+
+  <%} else if (currentUser){ %>
+<li class='intro'>Hello, <%=currentUser%></li>
+<li><a href='/brew'>Home</a></li>
+    <li><a href = '/map#map'>Map</a></li>
+    <li>
+    <div class='row'>
+    <form action="/search" method = "GET">
+    <div class='col s12 search input-field'>
+          <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
+      </div>
+      <!-----<div class='col s3'>
+          <button type='submit'>Search</button>
+         <div> ----->
+      </form>
+      </div></li>
+    
+    <li><form action="/sessions?_method=DELETE" method="POST">
+    <input type="submit" value="Logout" class="btn"/>
+</form>
+</li>
+ <% } else {%>
+    <li><a href='/map'>Home</a></li>
+    <li><a href='/users/new'>Sign Up</a></li>
+    <li><a href='/sessions/new'>Log In</a></li>
+    <li><a href = '/map#map'>Map</a></li>
+    <li>
+    <div class='row'>
+    <form action="/search" method = "GET">
+    <div class='col s12 search input-field'>
+          <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
+      </div>
+      <!-----<div class='col s3'>
+          <button type='submit'>Search</button>
+         <div> ----->
+      </form>
+      </div></li>
+    <%}%>
+  </ul>

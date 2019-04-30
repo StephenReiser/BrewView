@@ -46,6 +46,5 @@ $(document).ready(function(){
   /////figure out pictures - do i need to add them all in heroku or can I add in both places and upload a DB
   ////css
   ////Add autofill to show page
-  ///add in dup user logic
   ///add in hamburger
   
