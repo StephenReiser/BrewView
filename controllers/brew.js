@@ -256,30 +256,36 @@ brew.get('/:id', (request, response) => {
     //     return foundBrew
     // })
     
-    Brew.findById(request.params.id, (error, currentBrew) => { 
+    // Brew.findById(request.params.id, (error, currentBrew) => { 
         
-        response.render('brew/show.ejs', {
-            brew: currentBrew,
-            currentUser: request.session.currentUser,
-            brews: 0
-        })
+    //     response.render('brew/show.ejs', {
+    //         brew: currentBrew,
+    //         currentUser: request.session.currentUser,
+    //         brews: 0
+    //     })
         
-    })
+    // })
 
 /////maybe it makes sense to pass in the full array and then declare brew in the ejs file
     /////This seems close - but not working - it is finding something but doesn't seem to convert it?
 
-    // console.log(Brew.findById(request.params.id))
+    // brew: foundBrews.find(o => o._id === `ObjectID("${request.params.id}")`)
+    console.log(`ObjectID("${request.params.id}")`)
 
-    // Brew.find({}, (error, foundBrews) => {
-        
-    //     response.render('brew/show.ejs', {
-    //         brew: Brew.findById(request.params.id),
-    //         currentUser: request.session.currentUser,
-    //         brews: foundBrews
-    //     })
+    Brew.find({}, (error, foundBrews) => {
+        let currentBrewery = foundBrews[0]
+        for (let i = 0; i < foundBrews.length; i++) {
+            if (foundBrews[i]._id == request.params.id) {
+                currentBrewery = foundBrews[i]
+            }
+        }
+        response.render('brew/show.ejs', {
+            brew: currentBrewery,
+            currentUser: request.session.currentUser,
+            brews: foundBrews
+        })
 
-    // })
+    })
 
 
    

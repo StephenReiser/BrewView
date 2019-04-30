@@ -19,7 +19,7 @@ users.get('/new', (request, response) => {
     
 })
 
-////////This is giving an error and causing nodemon to crash if there is a duplicate user
+
 
 users.post('/', (request, response) => {
     request.body.password = bcrypt.hashSync(request.body.password, bcrypt.genSaltSync(10))
