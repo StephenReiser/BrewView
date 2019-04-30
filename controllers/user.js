@@ -24,11 +24,15 @@ users.get('/new', (request, response) => {
 users.post('/', (request, response) => {
     request.body.password = bcrypt.hashSync(request.body.password, bcrypt.genSaltSync(10))
     User.create(request.body, (error, createdUser)=> {
+        console.log(createdUser)
         if(error) {
-            response.redirect('/users/new/error')
-        } 
+            response.redirect('/users/new/error', {
+                // this is erroring out because it isn't getting an error - createduser is returning something weird
+            })
+        } else if(createdUser === undefined) {response.redirect('/users/new/error')
+    } else {
         request.session.currentUser = createdUser.username
             response.redirect('/map')
-    })
+    }})
 })
 module.exports = users

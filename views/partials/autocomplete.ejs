@@ -1,0 +1,17 @@
+        <script>
+      
+let testArr = {}
+<% brews.forEach((brewery) => { %>
+     testArr["<%=brewery.name%>"] = null
+    <% }) %>
+        
+        $('input.autocomplete').autocomplete({
+      data: 
+        //  This needs to be a loop of the database
+        
+        testArr
+        
+
+      ,
+    });
+        </script>

@@ -1,7 +1,5 @@
 
-console.log('test')
-
-
+// console.log('test')
 
 
 
@@ -12,7 +10,8 @@ console.log('test')
 
 
 
-
+let word = 'TESTING'
+let testWord = `"${word}"`
 
 
 
@@ -34,13 +33,7 @@ $(document).ready(function(){
       $('.carousel').carousel('next');
     }, 4000);
 
-    // $('.autocomplete').autocomplete({
-    //   data: {
-    //     "Apple": null,
-    //     "Microsoft": null,
-    //     "Google": 'https://placehold.it/250x250'
-    //   },
-    // });
+    
 
    
          
@@ -52,4 +45,4 @@ $(document).ready(function(){
   
   /////figure out pictures - do i need to add them all in heroku or can I add in both places and upload a DB
   ////css
-  ///Google map infowindow
+  

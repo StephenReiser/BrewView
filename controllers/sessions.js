@@ -10,6 +10,12 @@ sessions.get('/new', (request, response) => {
     })
 })
 
+sessions.get('/error', (request, response) => {
+    response.render('sessions/error.ejs', {
+        currentUser: request.session.currentUser
+    })
+})
+
 sessions.post('/', (request, response)=>{
   User.findOne({ username: request.body.username },(error, foundUser) =>{
     if (bcrypt.compareSync(request.body.password, foundUser.password)) {
@@ -17,7 +23,7 @@ sessions.post('/', (request, response)=>{
         
         response.redirect('/map')
     } else {
-        response.send(('<a href="/map">wrong password</a>'))
+        response.redirect('/sessions/error')
     }
   })
 })

@@ -31,7 +31,7 @@ const requestFunc = (url) => {
     })
     }
 
-    requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
+    // requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
 
     /////I think I should put this in each of the seed routes
     const secondRequestFunc = (url) => {
@@ -47,8 +47,8 @@ const requestFunc = (url) => {
         })
         }
     
-        requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
-        secondRequestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=2&per_page=50')
+        // requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
+        // secondRequestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=2&per_page=50')
     
 
 
@@ -180,7 +180,7 @@ brew.get('/seedroutetwo', (request, response) => {
 
   
 
-///featured route (sort of a show page)
+///featured route (sort of a show page) - I removed this
 brew.get('/featured', (request, response) => {
     
     response.render('brew/landing.ejs')
@@ -208,7 +208,7 @@ brew.post('/', (request, response) => {
 
 
 ////////////////Delete Route//////////////////////////
-brew.delete('/:id', (request, response) => {
+brew.delete('/:id', isAuthenticated, (request, response) => {
     // response.send('clicked')
     ////need to do something like findByIdAndRemove
     Brew.findByIdAndRemove(request.params.id, (error, removed) => {
@@ -249,9 +249,13 @@ brew.put('/:id', (request, response) => {
 
 /////show route
 brew.get('/:id', (request, response) => {
+    // Brew.find({}, (error, foundBrew) => {
+    //     return foundBrew
+    // })
     Brew.findById(request.params.id, (error, currentBrew) => {
         response.render('brew/show.ejs', {
             brew: currentBrew,
+            // brews: foundBrew,
             currentUser: request.session.currentUser
         })
         // console.log(request.session.currentUser)
