@@ -48,8 +48,8 @@ const requestFunc = (url) => {
         })
         }
     
-        // requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
-        // secondRequestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=2&per_page=50')
+        requestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=1&per_page=50')
+        secondRequestFunc('https://api.openbrewerydb.org/breweries?by_state=connecticut&page=2&per_page=50')
     
 
 
