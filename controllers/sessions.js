@@ -1,19 +1,26 @@
 const express = require('express')
 const sessions = express.Router()
+const Brew = require('../models/brew')
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
 
 sessions.get('/new', (request, response) => {
+    Brew.find({}, (error, foundBrews) => {
     response.render('sessions/new.ejs', {
+        brews: foundBrews,
         currentUser: request.session.currentUser
     })
 })
+})
 
 sessions.get('/error', (request, response) => {
+    Brew.find({}, (error, foundBrews) => {
     response.render('sessions/error.ejs', {
+        brews: foundBrews,
         currentUser: request.session.currentUser
     })
+})
 })
 
 sessions.post('/', (request, response)=>{

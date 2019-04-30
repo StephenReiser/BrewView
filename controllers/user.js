@@ -1,10 +1,13 @@
 const express = require('express')
 const users = express.Router()
 const User = require('../models/user')
+const Brew = require('../models/brew')
 const bcrypt = require('bcrypt')
 
 users.get('/error', (request, response) => {
+    Brew.find({}, (error, foundBrews) => {
     response.render('user/newerror.ejs', {
+        brews: foundBrews,
         currentUser: request.session.currentUser
     })
     // response.send('Error')
@@ -12,13 +15,16 @@ users.get('/error', (request, response) => {
     //not sure why this doesn't work, but feels liek it should
     
 })
+})
 users.get('/new', (request, response) => {
+    Brew.find({}, (error, foundBrews) => {
     response.render('user/new.ejs', {
+        brews: foundBrews,
         currentUser: request.session.currentUser
     })
     
 })
-
+})
 
 
 users.post('/', (request, response) => {

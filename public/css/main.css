@@ -66,3 +66,21 @@ nav {
     margin: 0 auto;
     padding: 0 auto;
 }
+
+.intro {
+    color: rgba(0,0,0,0.87);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    padding: 0 32px;
+    /* this is to just make this look the same as the links */
+}
+
+
+.fullSearchBar {
+    color: white;
+}
+.fullSearchBar:active{
+    border-bottom: none;
+}

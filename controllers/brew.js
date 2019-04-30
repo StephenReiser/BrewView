@@ -270,7 +270,7 @@ brew.get('/:id', (request, response) => {
     /////This seems close - but not working - it is finding something but doesn't seem to convert it?
 
     // brew: foundBrews.find(o => o._id === `ObjectID("${request.params.id}")`)
-    console.log(`ObjectID("${request.params.id}")`)
+    // console.log(`ObjectID("${request.params.id}")`)
 
     Brew.find({}, (error, foundBrews) => {
         let currentBrewery = foundBrews[0]

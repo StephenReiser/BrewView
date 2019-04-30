@@ -1,17 +1,43 @@
         <script>
       
 let testArr = {}
-<% brews.forEach((brewery) => { %>
+<% let bigBrews = brews%>
+// Trying to sort this array by name - nothing is happening!<% bigBrews.sort((a, b)=> { a.name - b.name}) %>
+<% bigBrews.forEach((brewery) => { %>
      testArr["<%=brewery.name%>"] = null
     <% }) %>
         
         $('input.autocomplete').autocomplete({
       data: 
-        //  This needs to be a loop of the database
-        
         testArr
-        
+    },function(a, b, inputString) {
+        // inputString will always be in both a and b if present
 
-      ,
-    });
+        // if there's a given inputString
+        if (inputString) {
+
+          // If only "a" starts with inputString
+          if (a.startsWith(inputString) && !b.startsWith(inputString)) {
+            return -1;
+          }
+
+          // If only "b" starts with inputString
+          if (!a.startsWith(inputString) && b.startsWith(inputString)) {
+            return 1;
+          }
+          // If both "a" and "b" start with inputString we do the same as always so
+        }
+
+        if (a < b) {
+            return -1;
+        }
+        if (a > b) {
+          return 1;
+        }
+        // a must be equal to b
+        return 0;
+    }
+    
+    
+    );
         </script>
