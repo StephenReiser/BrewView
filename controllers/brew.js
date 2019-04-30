@@ -6,6 +6,7 @@ const request = require('request')
 const Brew = require('../models/brew')
 let bodyArray = []
 let secondBodyArray = []
+let testBrewName = {}
 
 const isAuthenticated = (request, response, next) => {
   if(request.session.currentUser) {
@@ -252,14 +253,33 @@ brew.get('/:id', (request, response) => {
     // Brew.find({}, (error, foundBrew) => {
     //     return foundBrew
     // })
-    Brew.findById(request.params.id, (error, currentBrew) => {
+    
+    Brew.findById(request.params.id, (error, currentBrew) => { 
+        
         response.render('brew/show.ejs', {
             brew: currentBrew,
-            // brews: foundBrew,
-            currentUser: request.session.currentUser
+            currentUser: request.session.currentUser,
+            brews: 0
         })
-        // console.log(request.session.currentUser)
+        
     })
+
+/////maybe it makes sense to pass in the full array and then declare brew in the ejs file
+    /////This seems close - but not working - it is finding something but doesn't seem to convert it?
+
+    // console.log(Brew.findById(request.params.id))
+
+    // Brew.find({}, (error, foundBrews) => {
+        
+    //     response.render('brew/show.ejs', {
+    //         brew: Brew.findById(request.params.id),
+    //         currentUser: request.session.currentUser,
+    //         brews: foundBrews
+    //     })
+
+    // })
+
+
    
 })
 

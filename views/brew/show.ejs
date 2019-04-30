@@ -37,6 +37,7 @@
        </div>
        <div class='col s6'>
        <p>
+       
        <%=brew.address%> </br>
        <%=brew.city%>, <%=brew.state%> <%=brew.zip%> </br>
        <strong>Contact Info:</strong> </br>
@@ -64,16 +65,36 @@
     </div>
     <div class="carousel-item" href="#one!">
       <%# <h2>First Panel</h2> %>
+      <%# mainImage, imageTwo, imageThree, imageFour - need to do an if else for each one, if main image = ''  %>
+      <% if (brew.mainImage === '') {%>
       <img src='https://static.vinepair.com/wp-content/uploads/2017/11/tree-house-brewing-facts-inside.jpg'>
+      <% } else {%>
+        <img src="<%=brew.mainImage%>" alt="<%=brew.name%>">
+
+      <% } %>
     </div>
     <div class="carousel-item amber white-text" href="#two!">
-      <img src='https://thefullpint.com/wp-content/uploads/trillium_little_rooster.jpg'>>
+    <% if (brew.imageTwo === '') {%>
+      <img src='https://thefullpint.com/wp-content/uploads/trillium_little_rooster.jpg'>
+      <% } else {%>
+        <img src="<%=brew.imageTwo%>" alt="<%=brew.name%>">
+
+      <% } %>
     </div>
-    <div class="carousel-item green white-text" href="#three!">
-      <img src='https://static.wixstatic.com/media/f4db69_7568fadaf1854092bb31f7948458cf56.png/v1/fill/w_265,h_265,al_c,usm_0.66_1.00_0.01/f4db69_7568fadaf1854092bb31f7948458cf56.png'>
+    <div class="carousel-item" href="#two!">
+    <% if (brew.imageThree === '') {%>
+      <img src='https://thefullpint.com/wp-content/uploads/trillium_little_rooster.jpg'>
+      <% } else {%>
+        <img src="<%=brew.imageThree%>" alt="<%=brew.name%>">
+
+      <% } %>
     </div>
-    <div class="carousel-item blue white-text" href="#four!">
-      <img src='https://craftpeak-cooler-images.imgix.net/half-full-brewery/favicon-01.png?auto=compress%2Cformat&ixlib=php-1.2.1'>
+     <% if (brew.imageFour === '') {%>
+    <% } else {%>
+    <div class="carousel-item" href="#three!">
+        <img src="<%=brew.imageFour%>" alt="<%=brew.name%>">
+
+      <% } %>
     </div>
   </div>
        </div>
