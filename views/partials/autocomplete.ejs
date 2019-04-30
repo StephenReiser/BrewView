@@ -2,7 +2,11 @@
       
 let testArr = {}
 <% let bigBrews = brews%>
-// Trying to sort this array by name - nothing is happening!<% bigBrews.sort((a, b)=> { a.name - b.name}) %>
+<% bigBrews.sort((a, b)=> { %>
+<%	if(a.name < b.name) { return -1; } %>
+<%    if(a.name > b.name) { return 1; } %>
+<%    return 0; %>
+<% }) %>
 <% bigBrews.forEach((brewery) => { %>
      testArr["<%=brewery.name%>"] = null
     <% }) %>
@@ -10,33 +14,7 @@ let testArr = {}
         $('input.autocomplete').autocomplete({
       data: 
         testArr
-    },function(a, b, inputString) {
-        // inputString will always be in both a and b if present
-
-        // if there's a given inputString
-        if (inputString) {
-
-          // If only "a" starts with inputString
-          if (a.startsWith(inputString) && !b.startsWith(inputString)) {
-            return -1;
-          }
-
-          // If only "b" starts with inputString
-          if (!a.startsWith(inputString) && b.startsWith(inputString)) {
-            return 1;
-          }
-          // If both "a" and "b" start with inputString we do the same as always so
-        }
-
-        if (a < b) {
-            return -1;
-        }
-        if (a > b) {
-          return 1;
-        }
-        // a must be equal to b
-        return 0;
-    }
+    },
     
     
     );

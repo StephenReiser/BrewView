@@ -84,3 +84,8 @@ nav {
 .fullSearchBar:active{
     border-bottom: none;
 }
+
+.searchBtn {
+    margin: 0;
+    /* padding: 0 */
+}
