@@ -88,94 +88,94 @@ brew.get('/', (request, response) => {
 
 ///////// Seed Route
 
-brew.get('/seedrouteone', (request, response) => {
-    console.log(bodyArray)
-    console.log(bodyArray.length)
-    for (i = 0; i < bodyArray.length; i++) {
-        console.log('-----------------')
-        Brew.create({
-            name: bodyArray[i].name,
-            address: bodyArray[i].street || '',
-            city: bodyArray[i].city || '',
-            state: bodyArray[i].state || '',
-            zip: bodyArray[i].postal_code || '',
-            phone: bodyArray[i].phone || '',
-            email: '',
-            latitude: Number(bodyArray[i].latitude) || 0,
-            longitude: Number(bodyArray[i].longitude) || 0,
-            website: bodyArray[i].website_url || 'www.google.com',
-            mainImage: '',
-            imageTwo: '',
-            imageThree: '',
-            imageFour: '',
-            dogFriendly: 'Not Yet Verified',
-            outsideFood: 'Not Yet Verified',
-            foodTrucks: 'Not Yet Verified',
-            glutenFree: 'Not Yet Verified',
+// brew.get('/seedrouteone', (request, response) => {
+//     console.log(bodyArray)
+//     console.log(bodyArray.length)
+//     for (i = 0; i < bodyArray.length; i++) {
+//         console.log('-----------------')
+//         Brew.create({
+//             name: bodyArray[i].name,
+//             address: bodyArray[i].street || '',
+//             city: bodyArray[i].city || '',
+//             state: bodyArray[i].state || '',
+//             zip: bodyArray[i].postal_code || '',
+//             phone: bodyArray[i].phone || '',
+//             email: '',
+//             latitude: Number(bodyArray[i].latitude) || 0,
+//             longitude: Number(bodyArray[i].longitude) || 0,
+//             website: bodyArray[i].website_url || 'www.google.com',
+//             mainImage: '',
+//             imageTwo: '',
+//             imageThree: '',
+//             imageFour: '',
+//             dogFriendly: 'Not Yet Verified',
+//             outsideFood: 'Not Yet Verified',
+//             foodTrucks: 'Not Yet Verified',
+//             glutenFree: 'Not Yet Verified',
 
 
 
-        }, (error, newBrew) => {
-            if(error) {
-                console.log(bodyArray[i])
-            }
-        })
+//         }, (error, newBrew) => {
+//             if(error) {
+//                 console.log(bodyArray[i])
+//             }
+//         })
         
-        // response.send('Added seed data of' + bodyArray[i].name)
+//         // response.send('Added seed data of' + bodyArray[i].name)
 
       
-    }
+//     }
 
-    response.redirect('/map')
-    // response.send(bodyArray)
-    // response.send('testpage')
-})
-
-
-///////second seed route
-
-brew.get('/seedroutetwo', (request, response) => {
-    // console.log(secondBodyArray)
-    // console.log(secondBodyArray.length)
-    for (i = 0; i < secondBodyArray.length; i++) {
-        console.log('-----------------')
-        Brew.create({
-            name: secondBodyArray[i].name,
-            address: secondBodyArray[i].street || '',
-            city: secondBodyArray[i].city || '',
-            state: secondBodyArray[i].state || '',
-            zip: secondBodyArray[i].postal_code || '',
-            phone: secondBodyArray[i].phone || '',
-            email: '',
-            latitude: Number(secondBodyArray[i].latitude) || 0,
-            longitude: Number(secondBodyArray[i].longitude) || 0,
-            website: secondBodyArray[i].website_url || 'www.google.com',
-            mainImage: '',
-            imageTwo: '',
-            imageThree: '',
-            imageFour: '',
-            dogFriendly: 'Not Yet Verified',
-            outsideFood: 'Not Yet Verified',
-            foodTrucks: 'Not Yet Verified',
-            glutenFree: 'Not Yet Verified',
+//     response.redirect('/map')
+//     // response.send(bodyArray)
+//     // response.send('testpage')
+// })
 
 
+// ///////second seed route
 
-        }, (error, newBrew) => {
-            if(error) {
-                console.log(secondBodyArray[i])
-            }
-        })
+// brew.get('/seedroutetwo', (request, response) => {
+//     // console.log(secondBodyArray)
+//     // console.log(secondBodyArray.length)
+//     for (i = 0; i < secondBodyArray.length; i++) {
+//         console.log('-----------------')
+//         Brew.create({
+//             name: secondBodyArray[i].name,
+//             address: secondBodyArray[i].street || '',
+//             city: secondBodyArray[i].city || '',
+//             state: secondBodyArray[i].state || '',
+//             zip: secondBodyArray[i].postal_code || '',
+//             phone: secondBodyArray[i].phone || '',
+//             email: '',
+//             latitude: Number(secondBodyArray[i].latitude) || 0,
+//             longitude: Number(secondBodyArray[i].longitude) || 0,
+//             website: secondBodyArray[i].website_url || 'www.google.com',
+//             mainImage: '',
+//             imageTwo: '',
+//             imageThree: '',
+//             imageFour: '',
+//             dogFriendly: 'Not Yet Verified',
+//             outsideFood: 'Not Yet Verified',
+//             foodTrucks: 'Not Yet Verified',
+//             glutenFree: 'Not Yet Verified',
+
+
+
+//         }, (error, newBrew) => {
+//             if(error) {
+//                 console.log(secondBodyArray[i])
+//             }
+//         })
         
-        // response.send('Added seed data of' + secondBodyArray[i].name)
+//         // response.send('Added seed data of' + secondBodyArray[i].name)
 
       
-    }
+//     }
 
-    response.redirect('/map')
-    // response.send(secondBodyArray)
-    // response.send('testpage')
-})
+//     response.redirect('/map')
+//     // response.send(secondBodyArray)
+//     // response.send('testpage')
+// })
 
 
 
