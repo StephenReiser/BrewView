@@ -25,6 +25,9 @@ sessions.get('/error', (request, response) => {
 
 sessions.post('/', (request, response)=>{
   User.findOne({ username: request.body.username },(error, foundUser) =>{
+      if(foundUser === null) {
+          response.redirect('/sessions/error')
+      } else {
     if (bcrypt.compareSync(request.body.password, foundUser.password)) {
         request.session.currentUser = foundUser.username
         
@@ -32,7 +35,7 @@ sessions.post('/', (request, response)=>{
     } else {
         response.redirect('/sessions/error')
     }
-  })
+  }})
 })
 
 sessions.delete('/', (request, response) => {
