@@ -16,8 +16,8 @@
  <% include ./partials/nav.ejs%>
 
       <div class="container">
-        <h1>Welcome to Brew View</h1>
-        <h5>Can't find what you are looking for? Take a look below:</h5>
+        <h1 class='mainHeaderClass'>Welcome to Brew View</h1>
+        <h5 class='mainHeaderClass'>Can't find what you are looking for? Take a look below:</h5>
        
         <%# Probably makes sense to make a new array then sort it %>
 
@@ -35,14 +35,14 @@
 
       <%}) %>
 
-      
+      <ul class = 'collection'>
         <% newBrews.forEach((brewery) => {%>
        
-        <div class="row">
-           <a href='/brew/<%=brewery.id%>'><%= brewery.name %> </a>
+      
+           <li class='collection-item'><a href='/brew/<%=brewery.id%>'><%= brewery.name %> </a></li>
            
 
-          </div>
+        
         <%})%>
         </div>
 <% include ./partials/autocomplete.ejs%>

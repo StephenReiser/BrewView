@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bitter:700|Changa+One');
+
 body {
     background-color: #474a51;
     color: white;
@@ -107,4 +110,13 @@ nav {
 }
 .material-icons {
     font-size: 32px !important;
+}
+
+
+.brand-logo {
+    font-family: 'Changa One', cursive; 
+}
+
+.mainHeaderClass {
+    font-family: 'Bitter', serif;
 }

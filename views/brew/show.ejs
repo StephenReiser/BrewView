@@ -18,7 +18,7 @@
         <%# <h1>Welcome to Brew View</h1> %>
         <%# Somehwere in here it makes sense to keep Brewview %>
        <div class='main-content'>
-       <h2><%=brew.name%></h2>
+       <h2 class='mainHeaderClass'><%=brew.name%></h2>
        <% if(currentUser === 'TestUser1') {%>
        <div class='row'>
        <div class='col s2'>
@@ -105,7 +105,7 @@
         <%if(currentUser) {%>
 
         
-        <h5>Write a review</h5>
+        <h5 class='mainHeaderClass'>Write a review</h5>
         <form class="new-reviews" action="/reviews/<%=brew.id%>/new" method="post">
           <textarea name="review" placeholder="Add a review..." class='reviewInputBox'></textarea>
           <input class = 'btn' type="submit" value='Post'>
@@ -117,7 +117,7 @@
 
 
         <!-- displays all messages -->
-        <h5>Reviews</h5>
+        <h5 class='mainHeaderClass'>Reviews</h5>
 
     
 
