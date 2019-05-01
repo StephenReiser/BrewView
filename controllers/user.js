@@ -1,8 +1,10 @@
 const express = require('express')
 const users = express.Router()
+require('dotenv').config()
 const User = require('../models/user')
 const Brew = require('../models/brew')
 const bcrypt = require('bcrypt')
+const superUser = process.env.SUPERUSER
 
 users.get('/error', (request, response) => {
     // let errorUser = request
@@ -11,6 +13,7 @@ users.get('/error', (request, response) => {
     response.render('user/newerror.ejs', {
         brews: foundBrews,
         currentUser: request.session.currentUser,
+        superUser: superUser
         // errorUser: errorUser
     })
     // response.send('Error')
@@ -23,7 +26,8 @@ users.get('/new', (request, response) => {
     Brew.find({}, (error, foundBrews) => {
     response.render('user/new.ejs', {
         brews: foundBrews,
-        currentUser: request.session.currentUser
+        currentUser: request.session.currentUser,
+        superUser: superUser
     })
     
 })
@@ -44,6 +48,7 @@ users.post('/', (request, response) => {
         } 
     else {
         request.session.currentUser = createdUser.username
+        /////would some how have to pass previous page into this
             response.redirect('/map')
     }})
 })

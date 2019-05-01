@@ -31,6 +31,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/BrewVi
 
 const API = process.env.API
 const googleURL = "https://maps.googleapis.com/maps/api/js?key=" +API+ "&callback=initMap"
+const superUser = process.env.SUPERUSER
 //need to figure out how to put stuff in env
 
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
@@ -87,7 +88,8 @@ app.get('/' , (req, res) => {
       response.render('index.ejs', {
           brews: foundBrew,
           googleURL: googleURL,
-          currentUser: request.session.currentUser
+          currentUser: request.session.currentUser,
+          superUser: superUser
           
           
           

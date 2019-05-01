@@ -1,5 +1,6 @@
 const express = require('express')
 const sessions = require('express-session')
+require('dotenv').config()
 const brew = express.Router()
 const request = require('request')
 ///ultimately wil need to require any necessary Model and bcrypt
@@ -7,6 +8,7 @@ const Brew = require('../models/brew')
 let bodyArray = []
 let secondBodyArray = []
 let testBrewName = {}
+const superUser = process.env.SUPERUSER
 
 const isAuthenticated = (request, response, next) => {
   if(request.session.currentUser) {
@@ -76,7 +78,8 @@ brew.get('/', (request, response) => {
     Brew.find({},(error, foundBrew) => {
         response.render('oldindex.ejs', {
             brews: foundBrew,
-            currentUser: request.session.currentUser
+            currentUser: request.session.currentUser,
+            superUser: superUser
             
             
         })
@@ -190,7 +193,9 @@ brew.get('/featured', (request, response) => {
 ////////////New Route (visible)
 brew.get('/new', (request, response) => {
     response.render('brew/new.ejs', {
-        currentUser: request.session.currentUser
+        currentUser: request.session.currentUser,
+        superUser: superUser
+
     })
 }
 )
@@ -227,7 +232,8 @@ brew.get('/:id/edit', isAuthenticated, (request, response) => {
     Brew.findById(request.params.id, (error, currentBrew) => {
         response.render('brew/edit.ejs', {
             brew: currentBrew,
-            currentUser: request.session.currentUser
+            currentUser: request.session.currentUser,
+            superUser: superUser
         })
 
     })
@@ -282,7 +288,8 @@ brew.get('/:id', (request, response) => {
         response.render('brew/show.ejs', {
             brew: currentBrewery,
             currentUser: request.session.currentUser,
-            brews: foundBrews
+            brews: foundBrews,
+            superUser: superUser
         })
 
     })

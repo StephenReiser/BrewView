@@ -32,7 +32,7 @@
      <%}%>
     <ul class='right hide-on-med-and-down'>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger">menu</a>
-  <%if (currentUser === 'TestUser1') {%>
+  <%if (currentUser === superUser) {%>
     <li><a href='/map'>Home</a></li>
     <li><a href='/brew/new'>Add New</a></li>
     <li><form action="/sessions?_method=DELETE" method="POST">
@@ -66,7 +66,7 @@
 </nav>
 
  <ul class="sidenav" id="mobile-demo">
-   <%if (currentUser === 'TestUser1') {%>
+   <%if (currentUser === superUser) {%>
     <li>
     <div class='row'>
     <form class='littleBrew' action="/search" method = "GET">

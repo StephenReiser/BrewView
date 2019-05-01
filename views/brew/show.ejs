@@ -19,7 +19,7 @@
         <%# Somehwere in here it makes sense to keep Brewview %>
        <div class='main-content'>
        <h2 class='mainHeaderClass'><%=brew.name%></h2>
-       <% if(currentUser === 'TestUser1') {%>
+       <% if(currentUser === superUser) {%>
        <div class='row'>
        <div class='col s2'>
        <a href='/brew/<%=brew.id%>/edit'><button class='btn'>Edit</button></a>
