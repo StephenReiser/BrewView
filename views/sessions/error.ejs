@@ -9,14 +9,14 @@
     <!-- CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link rel='stylesheet' href='../css/main.css'>
+     <link rel='stylesheet' href='/css/main.css'>
      
   </head>
     <body>
     <% include ../partials/nav.ejs%>
       <div class="container">
-        <h1>Log In</h1>
-        <h4>Incorrect Credentials</h4>
+        <h1 class = 'mainHeaderClass'>Log In</h1>
+        <h4 class = 'mainHeaderClass'>Incorrect Credentials</h4>
         <div class="row">
           <form class="col s12" action="/sessions" method = "POST">
             <div class="row">

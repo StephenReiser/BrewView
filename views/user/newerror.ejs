@@ -9,14 +9,14 @@
     <!-- CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link rel='stylesheet' href='../css/main.css'>
+     <link rel='stylesheet' href='/css/main.css'>
      
   </head>
     <body>
     <% include ../partials/nav.ejs%>
       <div class="container">
-        <h1>Create User</h1>
-        <h3>User Name Already Taken</h3>
+        <h1 class = 'mainHeaderClass'>Create User</h1>
+        <h3 class = 'mainHeaderClass'>User Name Already Taken</h3>
         <div class="row">
           <form class="col s12" action='/users' method='POST'>
             <div class="row">
