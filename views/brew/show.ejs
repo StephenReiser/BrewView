@@ -124,7 +124,17 @@
       <%for (let i = brew.comments.length-1; i >= 0; i--) {%>
 <div class='row'>
       <div class="chip">
-      <%=brew.comments[i].username%>: 
+      <%=brew.comments[i].username%>
+    <% let dateArr = new Date(brew.comments[i].date) %>
+    <% if(dateArr.getMonth() >= 0) { %>
+
+    <%= dateArr.getMonth()+1%>/<%= dateArr.getFullYear() %>
+
+   <% } else { %>
+
+    <% } %>
+    </div>
+    <div>
     </div>
     <div>
         <%=brew.comments[i].userComments%>

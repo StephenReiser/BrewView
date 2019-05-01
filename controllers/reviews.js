@@ -27,7 +27,8 @@ reviews.post ('/:id/new', (request, response) => {
     console.log(request.body.review)
     let review = {
         username: request.session.currentUser,
-        userComments: request.body.review
+        userComments: request.body.review,
+        date: Date.now()
     }
     console.log(review)
   Brew.findOneAndUpdate(

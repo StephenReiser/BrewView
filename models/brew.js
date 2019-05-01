@@ -22,7 +22,8 @@ const brewSchema = new mongoose.Schema({
     comments: [{
         username: String,
         userComments: String,
-    }]
+        date: Date,
+    },  ]
     ///I think this will work by pushing like $push: {
     // comments: {
 //      "username": xyz
