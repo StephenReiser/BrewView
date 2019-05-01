@@ -68,7 +68,7 @@
       <%# <h2>First Panel</h2> %>
       <%# mainImage, imageTwo, imageThree, imageFour - need to do an if else for each one, if main image = ''  %>
       <% if (brew.mainImage === '') {%>
-      <img src='https://static.vinepair.com/wp-content/uploads/2017/11/tree-house-brewing-facts-inside.jpg'>
+      <img src='https://cdn.pixabay.com/photo/2017/04/10/15/59/beer-2218900_1280.jpg'>
       <% } else {%>
         <img src="<%=brew.mainImage%>" alt="<%=brew.name%>">
 
@@ -76,7 +76,7 @@
     </div>
     <div class="carousel-item amber white-text" href="#two!">
     <% if (brew.imageTwo === '') {%>
-      <img src='https://thefullpint.com/wp-content/uploads/trillium_little_rooster.jpg'>
+      <img src='https://cdn.pixabay.com/photo/2017/11/07/18/37/kegs-2927783_1280.jpg'>
       <% } else {%>
         <img src="<%=brew.imageTwo%>" alt="<%=brew.name%>">
 
@@ -84,7 +84,7 @@
     </div>
     <div class="carousel-item" href="#two!">
     <% if (brew.imageThree === '') {%>
-      <img src='https://thefullpint.com/wp-content/uploads/trillium_little_rooster.jpg'>
+      <img src='https://cdn.pixabay.com/photo/2017/08/21/11/48/beer-2665077_1280.jpg'>
       <% } else {%>
         <img src="<%=brew.imageThree%>" alt="<%=brew.name%>">
 
@@ -142,6 +142,7 @@
           </div>
         
         </div>
+        <% include ../partials/footer.ejs%>
       <% include ../partials/autocomplete.ejs%>
     </body>
 </html>
