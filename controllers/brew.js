@@ -222,7 +222,7 @@ brew.delete('/:id', isAuthenticated, (request, response) => {
     Brew.findByIdAndRemove(request.params.id, (error, removed) => {
         if(error) {
             console.log(error)
-        } response.redirect('/brew')
+        } response.redirect('/map')
     })
 })
 
