@@ -17,7 +17,7 @@
     <body>
     <% include ../partials/nav.ejs%>
       <div class="container">
-        <h1><%=brew.name%> Edit Page</h1>
+        <h1 class='mainHeaderClass'><%=brew.name%> Edit Page</h1>
          
         <div class="row">
           <form class="col s12" action="/brew/<%=brew.id; %>?_method=PUT" method = "POST" id='brewForm'>

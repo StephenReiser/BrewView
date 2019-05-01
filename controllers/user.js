@@ -5,10 +5,13 @@ const Brew = require('../models/brew')
 const bcrypt = require('bcrypt')
 
 users.get('/error', (request, response) => {
+    // let errorUser = request
+    // console.log(errorUser.errmsg)
     Brew.find({}, (error, foundBrews) => {
     response.render('user/newerror.ejs', {
         brews: foundBrews,
-        currentUser: request.session.currentUser
+        currentUser: request.session.currentUser,
+        // errorUser: errorUser
     })
     // response.send('Error')
 
@@ -36,6 +39,7 @@ users.post('/', (request, response) => {
             //     // this is erroring out because it isn't getting an error - createduser is returning something weird
             // })
             console.log(error)
+            // console.log(request.body)
             response.redirect('/users/error')
         } 
     else {

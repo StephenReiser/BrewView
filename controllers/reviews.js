@@ -41,7 +41,7 @@ reviews.post ('/:id/new', (request, response) => {
             console.log(error)
         } console.log(reviewed)
       
-      response.redirect('/brew/'+request.params.id);
+      response.redirect('/brew/'+request.params.id+'#reviewAnchor');
   });
 });
 
