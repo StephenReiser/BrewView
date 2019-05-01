@@ -191,7 +191,7 @@ brew.get('/featured', (request, response) => {
 })
 
 ////////////New Route (visible)
-brew.get('/new', (request, response) => {
+brew.get('/new', isAuthenticated, (request, response) => {
     response.render('brew/new.ejs', {
         currentUser: request.session.currentUser,
         superUser: superUser
