@@ -105,10 +105,10 @@
         <%if(currentUser) {%>
 
         
-        <h5>Add a Review</h5>
+        <h5>Write a review</h5>
         <form class="new-reviews" action="/reviews/<%=brew.id%>/new" method="post">
-          <textarea name="review" placeholder="Add A REVIEW..." class='reviewInputBox'></textarea>
-          <input type="submit" value="POST">
+          <textarea name="review" placeholder="Add a review..." class='reviewInputBox'></textarea>
+          <input class = 'btn' type="submit" value='Post'>
         </form>
         <%}%>
 

@@ -100,3 +100,11 @@ nav {
 .noPadding {
     padding: 0 !important;
 }
+
+.mobileButton {
+    /* margin: 2% !important; */
+    padding: 0 32px !important;
+}
+.material-icons {
+    font-size: 32px !important;
+}

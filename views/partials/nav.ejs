@@ -67,10 +67,6 @@
 
  <ul class="sidenav" id="mobile-demo">
    <%if (currentUser === 'TestUser1') {%>
-    <li class='intro'>Hello, <%=currentUser%></li>
-    <li><a href='/map'>Home</a></li>
-    <li><a href='/brew/new'>Add New</a></li>
-    <li><a href = '/map#map'>Map</a></li>
     <li>
     <div class='row'>
     <form class='littleBrew' action="/search" method = "GET">
@@ -82,15 +78,16 @@
          <div> ----->
       </form>
       </div></li>
-    <li><form action="/sessions?_method=DELETE" method="POST">
+    <li class='intro'>Hello, <%=currentUser%></li>
+    <li><a href='/map'>Home</a></li>
+    <li><a href='/brew/new'>Add New</a></li>
+    <li><a href = '/map#map'>Map</a></li>
+    <li><form class='mobileButton' action="/sessions?_method=DELETE" method="POST">
     <input type="submit" value="Logout" class="btn"/>
 </form>
 </li>
 
   <%} else if (currentUser){ %>
-<li class='intro'>Hello, <%=currentUser%></li>
-<li><a href='/brew'>Home</a></li>
-    <li><a href = '/map#map'>Map</a></li>
     <li>
     <div class='row'>
     <form class='littleBrew' action="/search" method = "GET">
@@ -102,16 +99,15 @@
          <div> ----->
       </form>
       </div></li>
+<li class='intro'>Hello, <%=currentUser%></li>
+<li><a href='/brew'>Home</a></li>
+    <li><a href = '/map#map'>Map</a></li>
     
-    <li><form action="/sessions?_method=DELETE" method="POST">
+    <li><form class= 'mobileButton' action="/sessions?_method=DELETE" method="POST">
     <input type="submit" value="Logout" class="btn"/>
 </form>
 </li>
  <% } else {%>
-    <li><a href='/map'>Home</a></li>
-    <li><a href='/users/new'>Sign Up</a></li>
-    <li><a href='/sessions/new'>Log In</a></li>
-    <li><a href = '/map#map'>Map</a></li>
     <li>
     <div class='row'>
     <form class='littleBrew' action="/search" method = "GET">
@@ -123,5 +119,9 @@
          <div> ----->
       </form>
       </div></li>
+    <li><a href='/map'>Home</a></li>
+    <li><a href='/users/new'>Sign Up</a></li>
+    <li><a href='/sessions/new'>Log In</a></li>
+    <li><a href = '/map#map'>Map</a></li>
     <%}%>
   </ul>

@@ -31,7 +31,7 @@ $(document).ready(function(){
 
     setInterval(() => {
       $('.carousel').carousel('next');
-    }, 4000);
+    }, 4500);
 
     
 
