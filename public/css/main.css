@@ -80,12 +80,23 @@ nav {
 
 .fullSearchBar {
     color: white;
+    
+    display: inline-block !important;
+    padding-left: 0 !important;
+    padding: 5% !important;
+    padding-right: 2rem !important;
 }
 .fullSearchBar:active{
     border-bottom: none;
+    /* background-color: white !important; */
+    
 }
 
 .searchBtn {
     margin: 0;
     /* padding: 0 */
+}
+
+.noPadding {
+    padding: 0 !important;
 }

@@ -6,33 +6,28 @@
        <a href="#!" class="brand-logo center">BrewView</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <%if (currentUser) {%>
-    <ul class='left hide-on-med-and-down'>
+    <ul id='nav-mobile' class='left hide-on-med-and-down'>
     <li>Hello, <%=currentUser%></li>
     <li><a href = '/map#map'>Map</a></li>
     <li>
-    <div class='row'>
-    <form action="/search" method = "GET">
     <div class='col s12 search input-field'>
-          <input id="autocomplete-input search" class='autocomplete fullSearchBar' type="text" placeholder='Search Breweries' name='search' required>
+    <form id='brewSearch' action="/search" method = "GET">
+          <input id="autocomplete-input" class='autocomplete fullSearchBar' type="search" placeholder='Search Breweries' name='search' required>
       </div>
-      <!-----<div class='col s3'>
-          <button type='submit'>Search</button>
-         <div> ----->
       </form>
-      </div></li>
+      </li>
    </ul>
 
      <%} else {%>
-    <ul class='left hide-on-med-and-down'>
+    <ul id='nav-mobile' class='left hide-on-med-and-down'>
     <li><a href = '/map#map'>Map</a></li>
   <li>
-    <div class='row'>
     <div class='col s12 search input-field'>
-    <form action="/search" method = "GET">
-          <input id="autocomplete-input" class='autocomplete fullSearchBar' type="text" placeholder='Search Breweries' name='search' required>
-      </form>
+    <form id='brewSearch' action="/search" method = "GET">
+          <input id="autocomplete-input" class='autocomplete fullSearchBar' type="search" placeholder='Search Breweries' name='search' required>
       </div>
-      </div></li>
+      </form>
+      </li>
    </ul>
      <%}%>
     <ul class='right hide-on-med-and-down'>
@@ -78,7 +73,7 @@
     <li><a href = '/map#map'>Map</a></li>
     <li>
     <div class='row'>
-    <form action="/search" method = "GET">
+    <form class='littleBrew' action="/search" method = "GET">
     <div class='col s12 search input-field'>
           <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
       </div>
@@ -98,7 +93,7 @@
     <li><a href = '/map#map'>Map</a></li>
     <li>
     <div class='row'>
-    <form action="/search" method = "GET">
+    <form class='littleBrew' action="/search" method = "GET">
     <div class='col s12 search input-field'>
           <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
       </div>
@@ -119,7 +114,7 @@
     <li><a href = '/map#map'>Map</a></li>
     <li>
     <div class='row'>
-    <form action="/search" method = "GET">
+    <form class='littleBrew' action="/search" method = "GET">
     <div class='col s12 search input-field'>
           <input id="autocomplete-input" class='autocomplete' type="text" placeholder='Search Breweries' name='search' required>
       </div>

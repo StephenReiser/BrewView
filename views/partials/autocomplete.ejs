@@ -1,5 +1,5 @@
         <script>
-      
+      console.log($(window).width())
 let testArr = {}
 <% let bigBrews = brews%>
 <% bigBrews.sort((a, b)=> { %>
@@ -13,8 +13,16 @@ let testArr = {}
         
         $('input.autocomplete').autocomplete({
       data: 
-        testArr
-    },
+        testArr,
+        onAutocomplete: () => {
+          console.log($(window).width)
+          if($(window).width() >975) {
+            $('#brewSearch').submit()
+          } else {
+          $('.littleBrew').submit()
+          }
+        }
+    }
     
     
     );
