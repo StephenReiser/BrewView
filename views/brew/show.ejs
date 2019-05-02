@@ -110,14 +110,15 @@
           <textarea name="review" placeholder="Add a review..." class='reviewInputBox'></textarea>
           <input class = 'btn' type="submit" value='Post'>
         </form>
-        <%}%>
+        <h5 class='mainHeaderClass' id='reviewAnchor'>Reviews</h5>
+        <%} else {%>
 
           <!--------Above section allows only logged in users to submit a review----->
-
+<h5 class='mainHeaderClass' id='reviewAnchor'>Reviews (Log in to add)</h5>
+<%}%>
 
 
         <!-- displays all messages -->
-        <h5 class='mainHeaderClass' id='reviewAnchor'>Reviews</h5>
 
     
 
